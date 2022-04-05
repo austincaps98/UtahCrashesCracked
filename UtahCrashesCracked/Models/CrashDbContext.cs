@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace UtahCrashesCracked.Models
 {
-    public class DataDbContext : DbContext
+    public class CrashDbContext : DbContext
     {
-        public DataDbContext(DbContextOptions<DataDbContext> options) : base (options)
+        public CrashDbContext(DbContextOptions<CrashDbContext> options) : base (options)
         {
 
         }
 
-        public DbSet<data> data { get; set; }
+        public DbSet<Crash> crashes { get; set; }
 
     }
 }

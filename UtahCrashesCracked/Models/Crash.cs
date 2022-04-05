@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UtahCrashesCracked.Models
 {
-    public class data
+    public class Crash
     {
         [Key]
         [Required]
