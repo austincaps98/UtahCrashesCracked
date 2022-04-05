@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using UtahCrashesCracked.Models;
 
@@ -11,16 +12,19 @@ namespace UtahCrashesCracked.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private DataDbContext _context { get; set; }
+        public HomeController(DataDbContext temp)
         {
-            _logger = logger;
+            _context = temp;   
         }
 
         public IActionResult Index()
         {
-            return View();
+            var blah = _context.data
+                .FromSqlRaw("select * from data where crash_severity_id = 5")
+                .ToList();
+
+            return View(blah);
         }
 
         public IActionResult Privacy()
