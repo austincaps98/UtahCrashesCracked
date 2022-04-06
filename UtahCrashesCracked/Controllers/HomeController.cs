@@ -28,10 +28,9 @@ namespace UtahCrashesCracked.Controllers
             return View(blah);
         }
 
-        [HttpGet]
         public IActionResult Crashes(int pageNum = 1)
         {
-            int pageSize = 10;
+            int pageSize = 25;
 
             var x = new CrashesViewModel
             {
@@ -49,12 +48,6 @@ namespace UtahCrashesCracked.Controllers
             };
 
             return View(x);
-        }
-
-        [HttpPost]
-        public IActionResult Crashes()
-        {
-            return RedirectToAction("Crashes");
         }
 
 
