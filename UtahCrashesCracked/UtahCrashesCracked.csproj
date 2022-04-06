@@ -11,6 +11,10 @@
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.AspNetCore.Identity.UI" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Home\privacy.pdf" />
+  </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
   </ItemGroup>
