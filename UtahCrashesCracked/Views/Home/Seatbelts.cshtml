@@ -5,4 +5,83 @@
     </header>
 
     <h1>Why are seatbelts important?</h1>
+
+    @model InputData
+
+    <form method="post" asp-controller="Home" asp-action="Score">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="pedestrian_involved">pedestrian_involved</label>
+            <input asp-for="pedestrian_involved" class="form-control" value=0 />
+            @*<input asp-for="pedestrian_involved" type="hidden" value=0 />*@
+        </div>
+
+        <div class="form-group">
+            <label asp-for="bicyclist_involved">bicyclist_involved</label>
+            <input asp-for="bicyclist_involved" class="form-control" value=0 />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="motorcycle_involved">motorcycle_involved </label>
+            <input asp-for="motorcycle_involved" class="form-control" value=0 />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="improper_restraint"> improper_restraint</label>
+            <input asp-for="improper_restraint" class="form-control" value=0 />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="unrestrained">unrestrained</label>
+            <input asp-for="unrestrained" class="form-control" value=1 />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="dui">dui</label>
+            <input asp-for="dui" class="form-control" value=0 />
+        </div>
+        <div class="form-group">
+            <label asp-for="intersection_related">intersection_related</label>
+            <input asp-for="intersection_related" class="form-control" value=0 />
+        </div>
+        <div class="form-group">
+            <label asp-for="overturn_rollover">overturn_rollover</label>
+            <input asp-for="overturn_rollover" class="form-control" value=0 />
+        </div>
+        <div class="form-group">
+            <label asp-for="older_driver_involved">older_driver_involved</label>
+            <input asp-for="older_driver_involved" class="form-control" value=0 />
+        </div>
+        <div class="form-group">
+            <label asp-for="distracted_driving">distracted_driving</label>
+            <input asp-for="distracted_driving" class="form-control" value=0 />
+        </div>
+        <div class="form-group">
+            <label asp-for="drowsy_driving">drowsy_driving</label>
+            <input asp-for="drowsy_driving" class="form-control" value=0 />
+        </div>
+        <div class="form-group">
+            <label asp-for="city_SALT_LAKE_CITY">city_SALT_LAKE_CITY</label>
+            <input asp-for="city_SALT_LAKE_CITY" class="form-control" value=0 />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="single_vehicle">single_vehicle</label>
+            <input asp-for="single_vehicle" class="form-control" value=0 />
+        </div>
+        <div class="form-group">
+            <label asp-for="roadway_departure">roadway_departure</label>
+            <input asp-for="roadway_departure" class="form-control" value=0 />
+        </div>
+
+        <br />
+        <div>
+            <input class="btn btn-primary" type="submit" value="Submit Appointment" />
+            @*<a class="btn btn-outline-secondary" asp-controller="Inference" asp-action="Score">Cancel</a>*@
+        </div>
+    </form>
+
+    <p>@ViewBag.results</p >
 </body>
+
