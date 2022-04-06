@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<br />
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-6 text-center">
+        <div class="timeline-panel pl-1">
+            <div class="timeline-heading pl-2">
+                <h3>Predicted Crash Severity : @ViewBag.seatbelt</h3>
+                <h6 class="subheading">
+                    @if (ViewBag.seatbelt == "1")
+                    {<p>Minor accident with no injuries</p>}
+                    else if (ViewBag.seatbelt == "2")
+                    {<p>Minor accident with possible injuries</p>}
+                    else if (ViewBag.seatbelt == "3")
+                    {<p>Accident with minor injuries</p>}
+                    else if (ViewBag.seatbelt == "4")
+                    {<p>Accident with serious injuries</p>}
+                    else
+                    {<p>Major accident with one or more fatalities</p>}
+                </h6>
+            </div>
+            <div class="timeline-body"><p class="text-muted">Wearing a seatbelt can greatly reduce risk of injuries and fatalities in accidents. In fact, according to the <a href="https://www.cdc.gov/transportationsafety/seatbeltbrief/index.html">CDC</a>, it can reduce the risk of death by 45%, and cut the risk of serious injury by 50%.</p></div>
+        </div>
+    </div>
+    <div class="col-5 text-center">
+        <img class="border border-1" width=80% src="/assets/img/hasseatbelt.jpeg" />
+    </div>
+</div>
+<br />
