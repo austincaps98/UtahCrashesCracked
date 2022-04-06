@@ -11777,3 +11777,30 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+.cookie-container {
+    position: fixed;
+    bottom: -100%;
+    width: 100%;
+    background-color: #2f3640;
+    color: white;
+    padding: 10px 32px;
+    box-shadow: 0 -2px 16px #212529;
+    transition: 400ms;
+}
+.cookie-container.active {
+    bottom: 0;
+}
+.cookie-container a {
+    color: white;
+}
+.cookie-btn {
+    background-color: #dc3545;
+    border: 0;
+    color: white;
+    padding: 12px 48px;
+    font-size: 18px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
