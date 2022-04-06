@@ -31,13 +31,30 @@
                  class="btn-group pull-right m-1">
             </div>
 
+
+<a asp-controller="Home" asp-action="NewCrash">Add New Crash</a>
+
+<div class="m-4">
+
             <a href="/Home/Crashes/pageNum=10100" class="next btn btn-outline-primary text-dark">Last &raquo;</a>
+
 
         </div>
 
     </row>
 
+
+        <tbody>
+            @foreach (Crash c in Model.Crashes)
+            {
+                <partial name="CrashSummary" model="c" />
+
+            }
+
+        </tbody>
+
     <row class="row mx-4">
+
 
         <div >
 
