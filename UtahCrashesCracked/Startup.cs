@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using UtahCrashesCracked.Models;
+using Microsoft.ML.OnnxRuntime;
 
 namespace UtahCrashesCracked
 {
@@ -35,6 +36,9 @@ namespace UtahCrashesCracked
                 .AddEntityFrameworkStores<CrashDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("Models/crashdata4.onnx")
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
