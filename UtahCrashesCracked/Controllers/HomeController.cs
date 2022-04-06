@@ -21,7 +21,7 @@ namespace UtahCrashesCracked.Controllers
         public IActionResult Index()
         {
             var blah = _context.data
-                .FromSqlRaw("select * from data where crash_severity_id = 5")
+                .FromSqlRaw("select * from crashes where crash_severity_id = 5")
                 .ToList();
 
             return View(blah);
