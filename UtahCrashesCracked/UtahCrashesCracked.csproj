@@ -13,6 +13,10 @@
     <None Remove="Models\ViewModels\" />
     <None Remove="Infrastructure\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Home\privacy.pdf" />
+  </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
   </ItemGroup>
