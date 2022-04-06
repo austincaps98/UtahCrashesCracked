@@ -12,6 +12,9 @@
     <None Remove="Microsoft.AspNetCore.Identity.UI" />
     <None Remove="Models\ViewModels\" />
     <None Remove="Infrastructure\" />
+    <None Remove="Microsoft.ML.OnnxRuntime" />
+    <None Remove="Microsoft.ML.OnnxTransformer" />
+    <None Remove="Microsoft.ML" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +38,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.23" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.7" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.11.0" />
+    <PackageReference Include="Microsoft.ML.OnnxTransformer" Version="1.7.1" />
+    <PackageReference Include="Microsoft.ML" Version="1.7.1" />
   </ItemGroup>
 
   <ItemGroup>
