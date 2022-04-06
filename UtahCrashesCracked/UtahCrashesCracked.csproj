@@ -10,6 +10,8 @@
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.AspNetCore.Identity.UI" />
+    <None Remove="Models\ViewModels\" />
+    <None Remove="Infrastructure\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,4 +37,8 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
 </Project>

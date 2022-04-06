@@ -28,11 +28,11 @@ namespace UtahCrashesCracked
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataDbContext>(options =>
+            services.AddDbContext<CrashDbContext>(options =>
                 options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<DataDbContext>();
+                .AddEntityFrameworkStores<CrashDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
