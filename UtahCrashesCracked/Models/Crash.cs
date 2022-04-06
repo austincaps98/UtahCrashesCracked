@@ -11,7 +11,7 @@ namespace UtahCrashesCracked.Models
         [Key]
         [Required]
         public string crash_id { get; set; }
-        public string crash_datetime { get; set; }
+        public DateTime crash_datetime { get; set; }
         public string route { get; set; }
         public string milepoint { get; set; }
         public string lat_utm_y { get; set; }
