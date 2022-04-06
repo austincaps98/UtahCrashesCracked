@@ -1,6 +1,8 @@
 ﻿@{
 }
 
+@using UtahCrashesCracked.Models
+
 @model Crash
 
 @if (Model.crash_datetime != null)
@@ -9,7 +11,7 @@
         <td>@Model.crash_datetime.Date.ToString("M"), @Model.crash_datetime.Year</td>
         <td>@Model.crash_datetime.ToString("h:mm tt")</td>
         <td>@Model.county_name</td>
-        <td>@Model.city</td>
+        <td>UppercaseFirst(@Model.city)</td>
         <td>@Model.route</td>
         <td>@Model.crash_severity_id</td>
     </tr>
