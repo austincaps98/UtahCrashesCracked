@@ -11416,6 +11416,30 @@ header.masthead {
   background-position: center center;
   background-size: cover;
 }
+header.mastheadseatbelt {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    color: #fff;
+    background-image: url("../assets/img/seatbelt.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+}
+
+header.mastheadDDD {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    color: #fff;
+    background-image: url("../assets/img/light-car-night-driving-vehicle-screenshot-2028-pxhere.com.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+}
+
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
   font-style: italic;
@@ -11776,4 +11800,31 @@ section#contact form#contactForm :-ms-input-placeholder {
   text-align: center;
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.cookie-container {
+    position: fixed;
+    bottom: -100%;
+    width: 100%;
+    background-color: #2f3640;
+    color: white;
+    padding: 10px 32px;
+    box-shadow: 0 -2px 16px #212529;
+    transition: 400ms;
+}
+.cookie-container.active {
+    bottom: 0;
+}
+.cookie-container a {
+    color: white;
+}
+.cookie-btn {
+    background-color: #dc3545;
+    border: 0;
+    color: white;
+    padding: 12px 48px;
+    font-size: 18px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    cursor: pointer;
 }
