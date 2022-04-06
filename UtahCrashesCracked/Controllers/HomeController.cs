@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
 using UtahCrashesCracked.Models;
 using UtahCrashesCracked.Models.ViewModels;
 
@@ -14,9 +16,13 @@ namespace UtahCrashesCracked.Controllers
     public class HomeController : Controller
     {
         private CrashDbContext _context { get; set; }
-        public HomeController(CrashDbContext temp)
+
+        private InferenceSession _session;
+
+        public HomeController(CrashDbContext temp, InferenceSession session)
         {
-            _context = temp;   
+            _context = temp;
+            _session = session;
         }
 
         public IActionResult Index( int pageNum = 1)
@@ -69,6 +75,22 @@ namespace UtahCrashesCracked.Controllers
         public IActionResult DrunkDrowsyDist()
         {
             return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Score(InputData data)
+        {
+
+            var result = _session.Run(new List<NamedOnnxValue>
+            {
+                NamedOnnxValue.CreateFromTensor("float_input", data.AsTensor())
+            });
+            Tensor<float> score = result.First().AsTensor<float>();
+            var prediction = new Prediction { PredictedValue = score.First() };
+            ViewBag.results = Convert.ToString(Math.Round(prediction.PredictedValue));
+            result.Dispose();
+            return View("Seatbelts");
         }
     }
 }
