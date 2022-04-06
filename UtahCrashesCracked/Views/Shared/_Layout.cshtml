@@ -25,7 +25,7 @@
     <!--<link rel="stylesheet" href="~/css/styles.css" />
 </head>-->
 <body id="page-top">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark"id="mainNav">
         <div class="container">
             <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/assets/img/navbarLogo.png" alt="..." /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,6 +33,7 @@
                 <i class="fas fa-bars ms-1"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
+              
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#services">Summary</a></li>
                     <li class="nav-item"><a class="nav-link" href="/home/seatbelts">Seatbelts</a></li>
@@ -68,8 +69,10 @@
         </nav>*@
     @*<div class="container">
         <main role="main" class="pb-3">*@
-    <section>
-        @RenderBody()
+    <section class="page-section">
+        <div>
+            @RenderBody()
+        </div>
     </section>
     @*</main>
         </div>*@

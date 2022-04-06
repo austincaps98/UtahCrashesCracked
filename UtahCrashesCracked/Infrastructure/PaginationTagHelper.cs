@@ -38,22 +38,26 @@ namespace UtahCrashesCracked.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i <= PageModel.TotalPages; i++)
+            for (int i = 1; i <= PageModel.TotalPages ; i++)
             {
-                TagBuilder tb = new TagBuilder("a");
-
-                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
-
-                if (PageClassesEnabled)
+                if (i <= PageModel.CurrentPage + 3 && i >= PageModel.CurrentPage - 3)
                 {
-                    tb.AddCssClass(PageClass);
-                    tb.AddCssClass(i == PageModel.CurrentPage ? PageClassSelected : PageClassNormal);
-                }
-                tb.AddCssClass(PageClass);
-                tb.InnerHtml.Append(i.ToString());
-                tb.InnerHtml.Append("\t");
 
-                final.InnerHtml.AppendHtml(tb);
+                    TagBuilder tb = new TagBuilder("a");
+
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+
+                    if (PageClassesEnabled)
+                    {
+                        tb.AddCssClass(PageClass);
+                        tb.AddCssClass(i == PageModel.CurrentPage ? PageClassSelected : PageClassNormal);
+                    }
+                    tb.AddCssClass(PageClass);
+                    tb.InnerHtml.Append(i.ToString());
+                    tb.InnerHtml.Append("\t");
+
+                    final.InnerHtml.AppendHtml(tb);
+                }
             }
 
             tho.Content.AppendHtml(final.InnerHtml);
