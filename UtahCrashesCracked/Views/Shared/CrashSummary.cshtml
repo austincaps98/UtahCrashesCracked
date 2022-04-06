@@ -5,11 +5,15 @@
 
 @if (Model.crash_datetime != null)
 {
-    <tr>
-        <td>@Model.crash_datetime</td>
-        <td>@Model.county_name</td>
-        <td>@Model.city</td>
-        <td>@Model.route</td>
-        <td>@Model.crash_severity_id</td>
-    </tr>
+<tr>
+    <td>@Model.crash_datetime</td>
+    <td>@Model.county_name</td>
+    <td>@Model.city</td>
+    <td>@Model.route</td>
+    <td>@Model.crash_severity_id</td>
+
+    <td><a asp-controller="home" asp-action="Summary" asp-route-crashid="@Model.crash_id">Summary</a></td>
+    <td><a asp-controller="home" asp-action="Edit" asp-route-crashid="@Model.crash_id">Edit</a></td>
+    <td><a asp-controller="home" asp-action="Delete" asp-route-crashid="@Model.crash_id">Delete</a></td>
+</tr>
 }

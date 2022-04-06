@@ -9,8 +9,9 @@ namespace UtahCrashesCracked.Models
     public class Crash
     {
         [Key]
-        [Required]
-        public string crash_id { get; set; }
+        [Required(ErrorMessage ="Please enter a valid Crash ID")]
+        public int crash_id { get; set; }
+        [Required(ErrorMessage ="Please choose a valid date")]
         public DateTime crash_datetime { get; set; }
         public string route { get; set; }
         public string milepoint { get; set; }

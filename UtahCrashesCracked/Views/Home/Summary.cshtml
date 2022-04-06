@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Summary";
+}
+
+@model UtahCrashesCracked.Models.Crash;
+
+<h2>Crash ID: @Model.crash_id</h2>
+
+<h3>Crash Information</h3>
+
+<p>Crash Datetime: @Model.crash_datetime</p>
+<p>Route Name: @Model.route</p>
+<p>Milepoint: @Model.milepoint</p>
+<p>Latitude: @Model.lat_utm_y</p>
+<p>Longitude: @Model.long_utm_x</p>
+<p>Main Road Name: @Model.main_road_name</p>
+<p>City: @Model.city</p>
+<p>County Name: @Model.county_name</p>
+<p>Crash Severity: @Model.crash_severity_id</p>
+<p>Work Zone: @Model.work_zone_related</p>
+<p>Pedestrian Involved: @Model.pedestrian_involved</p>
+<p>Bicyclist Involved: @Model.bicyclist_involved</p>
+<p>Motorcycle Involved: @Model.motorcycle_involved</p>
+<p>Improper Restraint: @Model.improper_restraint</p>
+<p>Unrestrained: @Model.unrestrained</p>
+<p>DUI: @Model.dui</p>
+<p>Intersection Related: @Model.intersection_related</p>
+<p>Wild Animal Related: @Model.wild_animal_related</p>
+<p>Domestic Animal Related: @Model.domestic_animal_related</p>
+<p>Overturn or Rollover: @Model.overturn_rollover</p>
+<p>Commercial Motor Vehicle Involved: @Model.commercial_motor_veh_involved</p>
+<p>Teenage Driver Involved: @Model.teenage_driver_involved</p>
+<p>Older Driver Involved: @Model.older_driver_involved</p>
+<p>Night/Dark Condition: @Model.night_dark_condition</p>
+<p>Single Vehicle: @Model.single_vehicle</p>
+<p>Distracted Driving: @Model.distracted_driving</p>
+<p>Drowsy Driving: @Model.drowsy_driving</p>
+<p>Roadway Departure: @Model.roadway_departure</p>
+
+<a asp-controller="home" asp-action="Edit" asp-route-crashid="@Model.crash_id">Edit</a>
+<a asp-controller="home" asp-action="Delete" asp-route-crashid="@Model.crash_id">Delete</a>
