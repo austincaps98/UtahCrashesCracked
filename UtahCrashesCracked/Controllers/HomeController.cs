@@ -25,16 +25,17 @@ namespace UtahCrashesCracked.Controllers
             _session = session;
         }
 
-        public IActionResult Index( int pageNum = 1)
+        public IActionResult Index()
         {
-            var blah = _context.crashes
-                .FromSqlRaw("select * from crashes where crash_severity_id = 5")
-                .ToList();
+            //var blah = _context.crashes
+            //    .FromSqlRaw("select * from crashes where crash_severity_id = 5")
+            //    .ToList();
 
-            return View(blah);
+            //return View(blah);
+            return View();
         }
 
-        public IActionResult Crashes(int pageNum = 1)
+        public IActionResult Crashes(int pageNum = 1,  int nextPage = 1, int previousPage = -1)
         {
             int pageSize = 25;
 

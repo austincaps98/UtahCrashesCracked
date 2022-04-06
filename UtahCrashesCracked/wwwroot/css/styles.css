@@ -238,9 +238,21 @@ sup {
 a {
   color: #ffc800;
   text-decoration: underline;
+  display: inline-block;
 }
 a:hover {
   color: #cca000;
+  background-color: #ddd;
+}
+
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.next {
+    background-color: #04AA6D;
+    color: white;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
