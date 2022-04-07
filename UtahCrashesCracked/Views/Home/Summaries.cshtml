@@ -5,81 +5,86 @@
     ViewData["Title"] = "Data Summaries";
 }
 @model List<Crash>
-    <body id="page-top">
-        <header class="mastheadDDD background-image">
-            <meta http-equiv="content-security-policy"
-                  content="script-src 'self' use.fontawesome.com fonts.googleapis.com" />
-            <div class="container">
-                <div class="masthead-heading text-uppercase display-4" style="text-shadow: 2px 2px 8px #000000">Break down of Utah Crashes</div>
-            </div>
-        </header>
-        <br />
-        <br />
-        <div class="row justify-content-start p-3">
-            <div class="col-5 text-center my-auto">
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4 class="subheading">Crash Locations</h4><br />
-                    </div>
-                    <div class="timeline-body"><p class="text-muted">Hover over the different cities in Utah in the map to see the total number of crashes that have taken place in each.</p>
-                    <p class="text-muted">You will notice the majority of crashes happen along main interstates and the higher populated areas, as you would expect, but there are some exceptions.</p></div>
-                </div>
-            </div>
-            <div class="col-6 text-center p-2 mx-4">
-                <div class='tableauPlaceholder' style='width: 740px; height: 756px;'><object class='tableauViz' width='740' height='756' style='display:none;'><param name='host_url' value='https%3A%2F%2F10az.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;smurthw8' /><param name='name' value='MapofUtahCrashes&#47;LocationofCrashes' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='showAppBanner' value='false' /></object></div>
-            </div>
+<body id="page-top">
+    <header class="mastheadDDD background-image">
+        <meta http-equiv="content-security-policy"
+              content="script-src 'self' use.fontawesome.com fonts.googleapis.com" />
+        <div class="container">
+            <div class="masthead-heading text-uppercase display-4" style="text-shadow: 2px 2px 8px #000000">Break down of Utah Crashes</div>
         </div>
-        <div class="row justify-content-start p-3">
-            <div class="col-8 text-center p-2 mx-4">
-                <div class='tableauPlaceholder' style='width: 980px; height: 636px;'><object class='tableauViz' width='980' height='636' style='display:none;'><param name='host_url' value='https%3A%2F%2F10az.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;smurthw8' /><param name='name' value='AccidentCounts&#47;Countsperincident' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='showAppBanner' value='false' /></object></div>
-            </div>
-            <div class="col-3 text-center my-auto">
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4 class="subheading">Crash Attribute Trends</h4><br />
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">Explore to the left the total crashes related to the listed categories. </p>
-                        <p class="text-muted">Try filtering by crash severity to see how it changes the totals.</p>
-                        <p class="text-muted">
-                            The meanings of the rankings is as follows:<br />1: No injuries<br />
-                            2: Possible injuries<br />3: Minor injuries<br />4: Serious injuries
-                            <br />5: One or more fatalities</p>
-                        </div>
+    </header>
+    <br />
+    <br />
+    <div class="row justify-content-start p-3">
+        <div class="col-5 text-center my-auto">
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="subheading">Crash Locations</h4><br />
+                </div>
+                <div class="timeline-body">
+                    <p class="text-muted">Hover over the different cities in Utah in the map to see the total number of crashes that have taken place in each.</p>
+                    <p class="text-muted">You will notice the majority of crashes happen along main interstates and the higher populated areas, as you would expect, but there are some exceptions.</p>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-start p-1">
-            <div class="col-2 text-center my-auto"></div>
-            <div class="col-3 text-center my-auto">
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4 class="subheading">Time of Day</h4><br />
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">Does the time of day you drive affect the likelihood you will be in an accident?</p>
-                        <p class="text-muted">Explore the answer in this chart.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-5 text-center">
-                <div class='tableauPlaceholder' style='width: 750px; height: 500px;'><object class='tableauViz' width='750' height="500" style='display:none;'><param name='host_url' value='https%3A%2F%2F10az.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;smurthw8' /><param name='name' value='CrahsesTimeofDay&#47;TimeofDay' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='showAppBanner' value='false' /></object></div>
-            </div>
+        <div class="col-6 text-center p-2 mx-4">
+            <div class='tableauPlaceholder' style='width: 740px; height: 756px;'><object class='tableauViz' width='740' height='756' style='display:none;'><param name='host_url' value='https%3A%2F%2F10az.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;smurthw8' /><param name='name' value='MapofUtahCrashes&#47;LocationofCrashes' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='showAppBanner' value='false' /></object></div>
         </div>
-        <div class="row justify-content-start p-3">
-            <div class="col-8 text-center p-2 mx-4">
-                <div class='tableauPlaceholder' style='width: 840px; height: 636px;'><object class='tableauViz' width='840' height='636' style='display:none;'><param name='host_url' value='https%3A%2F%2F10az.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;smurthw8' /><param name='name' value='CrashesCracked&#47;CrashoverTime' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='showAppBanner' value='false' /></object></div>
-            </div>
-            <div class="col-3 text-center my-auto">
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4 class="subheading">Time of Year</h4><br />
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">What months of the year have the highest numbers of severe accidents? The answer may suprise you </p>
-                        <p class="text-muted">Explore counts of crashes of different severity ranking during the different months of the year in Utah.</p>
-                    </div>
+    </div>
+    <div class="row justify-content-start p-3">
+        <div class="col-8 text-center p-2 mx-4">
+            <div class='tableauPlaceholder' style='width: 980px; height: 636px;'><object class='tableauViz' width='980' height='636' style='display:none;'><param name='host_url' value='https%3A%2F%2F10az.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;smurthw8' /><param name='name' value='AccidentCounts&#47;Countsperincident' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='showAppBanner' value='false' /></object></div>
+        </div>
+        <div class="col-3 text-center my-auto">
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="subheading">Crash Attribute Trends</h4><br />
+                </div>
+                <div class="timeline-body">
+                    <p class="text-muted">Explore to the left the total crashes related to the listed categories. </p>
+                    <p class="text-muted">Try filtering by crash severity to see how it changes the totals.</p>
+                    <p class="text-muted">
+                        The meanings of the rankings is as follows:<br />1: No injuries<br />
+                        2: Possible injuries<br />3: Minor injuries<br />4: Serious injuries
+                        <br />5: One or more fatalities
+                    </p>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+    <br /><br /><br /><br />
+    <div class="row justify-content-start p-1">
+        <div class="col-2 text-center my-auto"></div>
+        <div class="col-3 text-center my-auto">
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="subheading">Time of Day</h4><br />
+                </div>
+                <div class="timeline-body">
+                    <p class="text-muted">Does the time of day you drive affect the likelihood you will be in an accident?</p>
+                    <p class="text-muted">Explore the answer in this chart.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-5 text-center">
+            <div class='tableauPlaceholder' style='width: 750px; height: 500px;'><object class='tableauViz' width='750' height='500' style='display:none;'><param name='host_url' value='https%3A%2F%2F10az.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;smurthw8' /><param name='name' value='TimeofDay&#47;TimeofDay' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='showAppBanner' value='false' /></object></div>
+        </div>
+    </div>
+    <br /><br /><br /><br />
+    <div class="row justify-content-start p-3">
+        <div class="col-8 text-center p-2 mx-4">
+            <div class='tableauPlaceholder' style='width: 840px; height: 636px;'><object class='tableauViz' width='840' height='636' style='display:none;'><param name='host_url' value='https%3A%2F%2F10az.online.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='&#47;t&#47;smurthw8' /><param name='name' value='CrashesCracked&#47;CrashoverTime' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='showAppBanner' value='false' /></object></div>
+        </div>
+        <div class="col-3 text-center my-auto">
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="subheading">Time of Year</h4><br />
+                </div>
+                <div class="timeline-body">
+                    <p class="text-muted">What months of the year have the highest numbers of severe accidents? The answer may suprise you </p>
+                    <p class="text-muted">Explore counts of crashes of different severity ranking during the different months of the year in Utah.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
