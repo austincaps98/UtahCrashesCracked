@@ -7,7 +7,7 @@
     <meta name="author" content="" />
     <title>@ViewData["Title"]</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="~/assets/favicon.png" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -15,6 +15,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="~/css/styles.css" rel="stylesheet" />
+    <!--Script for Tableau tables-->
+    <script type='text/javascript' src='https://10az.online.tableau.com/javascripts/api/viz_v1.js'></script>
 </head>
 <!--<head>
     <meta charset="utf-8" />
@@ -34,13 +36,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#services">Summary</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/home/seatbelts">Seatbelts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/home/DrunkDrowsyDist">Most Dangerous</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="btn btn-primary btn-md text-uppercase mx-1 text-dark"
-                        asp-controller="Home" asp-action="crashes">Crash Summaries</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Summaries">Explore Crash Data</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Seatbelts">Seatbelts?</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="DrunkDrowsyDist">Distracted Driving</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary btn-md text-uppercase mx-1 text-dark"
+                           asp-controller="Home" asp-action="crashes">View Dataset</a>
+                    </li>
                 </ul>
                 <partial name="_LoginPartial"/>
             </div>
@@ -77,11 +79,11 @@
     <footer class="footer py-4">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
+                <div class="col-lg-4 text-lg-start">Copyright &copy; CrashesCracked 2022</div>
                 <div class="col-lg-4 my-3 my-lg-0">
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    @*<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>*@
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <a class="link-dark text-decoration-none me-3" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>

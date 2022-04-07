@@ -1,11 +1,13 @@
 ﻿@{
+    ViewData["Title"] = "Significance of Seatbelts";
 }
+
 <body id="page-top">
     <header class="mastheadseatbelt background-image">
         <meta http-equiv="content-security-policy"
-                content="script-src 'self' use.fontawesome.com fonts.googleapis.com" />
+              content="script-src 'self' use.fontawesome.com fonts.googleapis.com" />
         <div class="container">
-            <div class="masthead-heading text-uppercase display-4" style="text-shadow: 2px 2px 8px #000000">Why are seatbelts important?</div>
+            <div class="masthead-heading text-uppercase display-4" style="text-shadow: 2px 2px 8px #000000">Are seatbelts important?</div>
         </div>
     </header>
     <br />
@@ -19,8 +21,8 @@
             <!-- Tab Buttons -->
             <ul id="tabstrip" class="nav nav-tabs justify-content-center" role="tablist">
                 @*<li class="active">
-                <a href="#_opentab" class="nav-link active" role="tab" data-toggle="tab">With Seatbelt</a>
-            </li>*@
+                        <a href="#_opentab" class="nav-link active" role="tab" data-toggle="tab">With Seatbelt</a>
+                    </li>*@
                 <li class="active">
                     <a href="#_FirstTab" class="nav-link active " role="tab" data-toggle="tab">With Seatbelt</a>
                 </li>
@@ -37,7 +39,7 @@
                 <!--<div class="tab-pane active" id="_opentab">-->
                 <!-- Call partial view to load initial page load data -->
                 <!--<p>testing</p>
-        </div>-->
+                </div>-->
                 <div class="tab-pane active" id="_FirstTab">
                     <!-- Call partial view to load initial page load data -->
                     <partial name="_SeatbeltPartial" view-data="ViewData" />

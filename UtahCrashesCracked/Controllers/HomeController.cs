@@ -57,9 +57,14 @@ namespace UtahCrashesCracked.Controllers
         }
 
 
-        public IActionResult Privacy()
+        public IActionResult Summaries()
         {
-            return View();
+            var categories = _context.crashes.Select(x => x.county_name).ToList();
+
+            var blah = _context.crashes
+                .FromSqlRaw("select * from crashes where crash_severity_id = 5")
+                .ToList();
+            return View(blah);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
