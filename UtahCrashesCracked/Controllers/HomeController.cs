@@ -35,20 +35,23 @@ namespace UtahCrashesCracked.Controllers
             return View();
         }
 
-        public IActionResult Crashes(int pageNum = 1,  int nextPage = 1, int previousPage = -1)
+        public IActionResult Crashes(string county, int pageNum = 1)
         {
             int pageSize = 25;
 
             var x = new CrashesViewModel
             {
                 Crashes = _context.crashes
+                .Where(c => c.county_name == county || county == null)
                 .OrderBy(c => c.crash_datetime)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumCrashes = _context.crashes.Count(),
+                    TotalNumCrashes = (county == null
+                    ? _context.crashes.Count()
+                    : _context.crashes.Where(x => x.county_name == county).Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
                 }

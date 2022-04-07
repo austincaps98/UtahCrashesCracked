@@ -6,7 +6,9 @@
 
 @model CrashesViewModel
 
-<div class="col mx-4 mt-4 text-center">Put something here</div>
+<div class="col mx-4 mt-4 text-center">
+    <vc:filters></vc:filters>
+</div>
 
 <div class="col-10 float-end">
     @*Search*@
@@ -24,16 +26,19 @@
 
         <div>
 
-            <a href="/Home/Crashes/" class="previous btn btn-outline-primary text-dark">&laquo; First</a>
+            @*<a class="previous btn btn-outline-primary text-dark">&laquo; First</a>*@
 
             <div page-model="@Model.PageInfo" page-action="Crashes" page-class="btn"
                  page-class-normal="btn-outline-dark" page-class-selected="btn-primary btn-outline-dark text-light" page-classes-enabled="true"
                  class="btn-group pull-right m-1">
             </div>
-
-            <a href="/Home/Crashes/pageNum=10100" class="next btn btn-outline-primary text-dark">Last &raquo;</a>
+            @*<a href="/Home/Crashes?pageNum=10100" class="next btn btn-outline-primary text-dark">Next &raquo;</a>*@
 
             <a class="btn btn-primary btn-md float-end" asp-controller="Home" asp-action="NewCrash">Add New Crash</a>
+
+            <p>Showing page @Model.PageInfo.CurrentPage of @Model.PageInfo.TotalPages</p>
+            <p>@Model.PageInfo.TotalNumCrashes Total Results</p>
+
 
         </div>
 

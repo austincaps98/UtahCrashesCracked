@@ -18,6 +18,7 @@
     <None Remove="Microsoft.ML.OnnxRuntime.MKLML" />
     <None Remove="Views\Shared\Components\" />
     <None Remove="Views\Shared\Components\filters\" />
+    <None Remove="Components\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,5 +53,6 @@
     <Folder Include="Infrastructure\" />
     <Folder Include="Views\Shared\Components\" />
     <Folder Include="Views\Shared\Components\filters\" />
+    <Folder Include="Components\" />
   </ItemGroup>
 </Project>

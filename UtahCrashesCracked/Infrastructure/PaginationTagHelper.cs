@@ -38,11 +38,28 @@ namespace UtahCrashesCracked.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
+            TagBuilder tb = new TagBuilder("a");
+
+            tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = PageModel.CurrentPage - 1 });
+
+            if (PageClassesEnabled)
+            {
+                tb.AddCssClass(PageClass);
+                tb.AddCssClass(PageClassSelected);
+            }
+
+            tb.InnerHtml.Append("<<Previous");
+
+            tb.InnerHtml.Append("\t");
+
+            final.InnerHtml.AppendHtml(tb);            
+
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {
+
                 if (i <= PageModel.CurrentPage + 3 && i >= PageModel.CurrentPage - 3)
                 {
-                    TagBuilder tb = new TagBuilder("a");
+                    tb = new TagBuilder("a");
 
                     tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
 
@@ -58,6 +75,22 @@ namespace UtahCrashesCracked.Infrastructure
                     final.InnerHtml.AppendHtml(tb);
                 }
             }
+
+            tb = new TagBuilder("a");
+
+            tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = PageModel.CurrentPage + 1 });
+
+            if (PageClassesEnabled)
+            {
+                tb.AddCssClass(PageClass);
+                tb.AddCssClass(PageClassSelected);
+            }
+
+            tb.InnerHtml.Append("Next>>");
+
+            tb.InnerHtml.Append("\t");
+
+            final.InnerHtml.AppendHtml(tb);         
 
             tho.Content.AppendHtml(final.InnerHtml);
         }
