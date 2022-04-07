@@ -13,10 +13,19 @@
 <div class="col-10 float-end">
     @*Search*@
     <row class="row m-4">
-        <form class="col-5" method="post" asp-action="Crashes">
+        <form class="col-5" method="get" asp-action="Crashes">
             <div class="form-group">
-                <label>Search:</label>
-                <input class="form-control" />
+                <row class="row">
+                    <label>Search:</label>
+                </row>
+                <row class="row">
+                    <div class="col">
+                        <input class="form-control" />
+                    </div>
+                    <div class="col">
+                        <input type="submit" class="btn btn-primary ml-1" value="Go" />
+                    </div>
+                </row>
             </div>
         </form>
     </row>

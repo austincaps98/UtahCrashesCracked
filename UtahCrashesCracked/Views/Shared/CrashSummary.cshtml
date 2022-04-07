@@ -6,7 +6,7 @@
 @if (Model.crash_datetime != null)
 {
 <tr>
-    <td>@Model.crash_datetime.Date</td>
+    <td>@Model.crash_datetime.Date.ToString("MMMM d, yyyy")</td>
     <td>@Model.crash_datetime.Date.ToString("h:mm tt")</td>
     <td>@Model.county_name</td>
     <td>@Model.city</td>
