@@ -37,7 +37,7 @@ namespace UtahCrashesCracked
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSingleton<InferenceSession>(
-                new InferenceSession("Models/crashdata4.onnx")
+                new InferenceSession("wwwroot/crashdata4.onnx")
                 );
         }
 

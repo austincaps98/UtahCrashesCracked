@@ -55,4 +55,8 @@
     <Folder Include="Views\Shared\Components\filters\" />
     <Folder Include="Components\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\crashdata4.onnx" />
+  </ItemGroup>
 </Project>
