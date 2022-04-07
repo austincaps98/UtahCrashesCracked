@@ -3,15 +3,14 @@
 @inject UserManager<IdentityUser> UserManager
 
 <ul class="navbar-nav">
-<<<<<<< HEAD
     @if (SignInManager.IsSignedIn(User))
     {
         <li class="nav-item">
-            <a class="nav-link mx-4" style="color: #fed136" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link btn btn-primary btn-md text-uppercase text-dark"
                asp-controller="Home" asp-action="crashes">Crash Summaries</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link mx-4" style="color: #fed136" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
         </li>
         <li class="nav-item">
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
@@ -21,31 +20,9 @@
     }
     else
     {
-        <li class="nav-item">
+        <li class="nav-item row-cols-1">
             <a class="nav-link btn btn-primary btn-md text-uppercase text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
             <a class="nav-link btn btn-primary btn-md text-uppercase text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
         </li>
     }
-=======
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link mx-4" style="color: #fed136" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="btn btn-primary btn-md text-uppercase">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    @*<li>
-        <a class="btn btn-primary btn-md text-uppercase mx-4 text-dark"  asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>*@
-    <li class="nav-item">
-        <a class="nav-link btn btn-primary btn-md text-uppercase text-dark" href="https://crashescsignin.auth.us-east-1.amazoncognito.com/login?client_id=s9ihqs068jl48ni663015pov8&response_type=token&scope=email+openid+phone+profile&redirect_uri=https://crashescracked.com">Login</a>
-    </li>
-}
->>>>>>> d67e88370c446c0ffa5d7897f5de1cd14ae1992b
 </ul>
