@@ -35,6 +35,7 @@ namespace UtahCrashesCracked.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Crashes(string county, int pageNum = 1)
         {
             int pageSize = 25;
@@ -58,6 +59,12 @@ namespace UtahCrashesCracked.Controllers
             };
 
             return View(x);
+        }
+
+        [HttpPost]
+        public IActionResult Crashes()
+        {
+            return View();
         }
 
 
