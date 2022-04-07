@@ -46,6 +46,16 @@ namespace UtahCrashesCracked
                 options.UseMySql(Configuration["ConnectionStrings:AuthDbContextConnection"]);
             });
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                //Default password settings
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 1;
+            });
             //Not sure why but this causes an error: Scheme already exists but might be nessessary for migrations
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<AuthDbContext>();
