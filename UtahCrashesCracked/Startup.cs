@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using UtahCrashesCracked.Models;
 using Microsoft.ML.OnnxRuntime;
 
+
 namespace UtahCrashesCracked
 {
     public class Startup
@@ -33,12 +34,29 @@ namespace UtahCrashesCracked
                 options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<CrashDbContext>();
+                .AddEntityFrameworkStores<AuthDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSingleton<InferenceSession>(
                 new InferenceSession("wwwroot/crashdata4.onnx")
                 );
+
+            //code for user database connection
+            services.AddDbContext<AuthDbContext>(options =>
+            {
+                options.UseMySql(Configuration["ConnectionStrings:AuthDbContextConnection"]);
+            });
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                //Default password settings
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 1;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

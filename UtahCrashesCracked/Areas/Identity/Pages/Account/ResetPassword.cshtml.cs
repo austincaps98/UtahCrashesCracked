@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 
+
 namespace UtahCrashesCracked.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
