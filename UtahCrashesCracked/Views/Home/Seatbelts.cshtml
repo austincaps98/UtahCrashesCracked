@@ -13,16 +13,23 @@
     <br />
     <br />
     <div class="row justify-content-start p-3">
-        <div class="col-5 text-center ">
-            <p>Put interesting data later</p>
+        <div class="col-5 text-center my-auto">
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="subheading">Impact of Seatbelts on Crash Severity</h4><br />
+                </div>
+                <div class="timeline-body">
+                    <p class="text-muted">What impact does wearing a seatbelt actually have on your chances of being injured or killed in a car accident? </p>
+                    <p class="text-muted">To the right, you will be able to see the predicted crash severity of an accident under different seatbelt-related scenarios.</p>
+                </div>
+            </div>
         </div>
         <div class="col-6 text-center border border-4 rounded p-2 mx-4">
-            <h2>IMPACT ON CRASH SEVERITY</h2>
             <!-- Tab Buttons -->
             <ul id="tabstrip" class="nav nav-tabs justify-content-center" role="tablist">
                 @*<li class="active">
-                        <a href="#_opentab" class="nav-link active" role="tab" data-toggle="tab">With Seatbelt</a>
-                    </li>*@
+                <a href="#_opentab" class="nav-link active" role="tab" data-toggle="tab">With Seatbelt</a>
+            </li>*@
                 <li class="active">
                     <a href="#_FirstTab" class="nav-link active " role="tab" data-toggle="tab">With Seatbelt</a>
                 </li>
@@ -39,7 +46,7 @@
                 <!--<div class="tab-pane active" id="_opentab">-->
                 <!-- Call partial view to load initial page load data -->
                 <!--<p>testing</p>
-                </div>-->
+        </div>-->
                 <div class="tab-pane active" id="_FirstTab">
                     <!-- Call partial view to load initial page load data -->
                     <partial name="_SeatbeltPartial" view-data="ViewData" />
@@ -52,6 +59,7 @@
                 </div>
             </div>
             @*<div class="col-1 text-center "></div>*@
+            <p class="text-muted"><small >*Calculated using a model trained on the data collected for crashes here in Utah.</small></p>
         </div>
     </div>
 
