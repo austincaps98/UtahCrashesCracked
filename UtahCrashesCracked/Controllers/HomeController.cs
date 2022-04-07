@@ -62,9 +62,29 @@ namespace UtahCrashesCracked.Controllers
         }
 
         [HttpPost]
-        public IActionResult Crashes()
+        public IActionResult Crashes(CrashesViewModel model, int pageNum = 1)
         {
-            return View();
+            int pageSize = 25;
+
+            var x = new CrashesViewModel
+            {
+                Crashes = _context.crashes
+                .Where(c => c.county_name.Contains(model.CrashQuery.SearchQuery))
+                .OrderBy(c => c.crash_datetime)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumCrashes = (model.CrashQuery.SearchQuery == null
+                    ? _context.crashes.Count()
+                    : _context.crashes.Where(x => x.county_name.Contains(model.CrashQuery.SearchQuery)).Count()),
+                    CrashesPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+            return View(x);
         }
 
 

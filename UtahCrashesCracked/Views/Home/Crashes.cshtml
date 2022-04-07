@@ -12,15 +12,16 @@
 
 <div class="col-10 float-end">
     @*Search*@
+
     <row class="row m-4">
-        <form class="col-5" method="get" asp-action="Crashes">
+        <form class="col-5" method="post" asp-controller="Home" asp-action="Crashes">
             <div class="form-group">
                 <row class="row">
-                    <label>Search:</label>
+                    <label asp-for="CrashQuery.SearchQuery">Search:</label>
                 </row>
                 <row class="row">
                     <div class="col">
-                        <input class="form-control" />
+                        <input id="firstName" asp-for="CrashQuery.SearchQuery" class="form-control" />
                     </div>
                     <div class="col">
                         <input type="submit" class="btn btn-primary ml-1" value="Go" />
