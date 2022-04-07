@@ -19,6 +19,8 @@
     <None Remove="Views\Shared\Components\" />
     <None Remove="Views\Shared\Components\filters\" />
     <None Remove="Components\" />
+    <None Remove="NinjaNye.SearchExtensions" />
+    <None Remove="System.Linq.Dynamic.Core" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +48,8 @@
     <PackageReference Include="Microsoft.ML" Version="1.7.1" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.8.1" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime.MKLML" Version="1.6.0" />
+    <PackageReference Include="NinjaNye.SearchExtensions" Version="3.0.1" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.18" />
   </ItemGroup>
 
   <ItemGroup>

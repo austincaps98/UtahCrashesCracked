@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
+using NinjaNye.SearchExtensions;
 using UtahCrashesCracked.Models;
 using UtahCrashesCracked.Models.ViewModels;
 
@@ -43,7 +44,7 @@ namespace UtahCrashesCracked.Controllers
             var x = new CrashesViewModel
             {
                 Crashes = _context.crashes
-                .Where(c => c.county_name == county || county == null)
+                .Where(c => c.county_name == county || county == null) 
                 .OrderBy(c => c.crash_datetime)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
@@ -66,10 +67,14 @@ namespace UtahCrashesCracked.Controllers
         {
             int pageSize = 25;
 
+            string query = model.CrashQuery.SearchQuery;
+
             var x = new CrashesViewModel
             {
                 Crashes = _context.crashes
-                .Where(c => c.county_name.Contains(model.CrashQuery.SearchQuery))
+                .Where(c => c.county_name.Contains(query) ||
+                c.city.Contains(query) ||
+                c.main_road_name.Contains(query))
                 .OrderBy(c => c.crash_datetime)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
@@ -78,7 +83,9 @@ namespace UtahCrashesCracked.Controllers
                 {
                     TotalNumCrashes = (model.CrashQuery.SearchQuery == null
                     ? _context.crashes.Count()
-                    : _context.crashes.Where(x => x.county_name.Contains(model.CrashQuery.SearchQuery)).Count()),
+                    : _context.crashes.Where(x => x.county_name.Contains(query) ||
+                    x.city.Contains(query) ||
+                    x.main_road_name.Contains(query)).Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
                 }
