@@ -66,9 +66,20 @@ namespace UtahCrashesCracked
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "Filter",
+                    pattern: "/Crashes/{county}/Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Crashes" }
+                    );
+
+                endpoints.MapControllerRoute(
                     name: "Paging",
                     pattern: "/Crashes/Page{pageNum}",
-                    defaults: new { Controller = "Home", action = "Crashes" });
+                    defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
+
+                endpoints.MapControllerRoute("county",
+                    "/Crashes/{county}",
+                    new { Controller = "Home", action = "Crashes", pageNum = 1 });
+
 
                 endpoints.MapControllerRoute(
                     name: "default",
