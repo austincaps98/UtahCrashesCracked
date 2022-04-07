@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220407124329_Initial-Create.cs" />
+    <Compile Remove="Migrations\20220407124329_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20220407124512_Initial-Create.cs" />
+    <Compile Remove="Migrations\20220407124512_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20220407125950_Initial-Create.cs" />
+    <Compile Remove="Migrations\20220407125950_Initial-Create.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.AspNetCore.Identity.UI" />
@@ -31,7 +40,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.23" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.23" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.23">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -44,6 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Infrastructure\" />
   </ItemGroup>

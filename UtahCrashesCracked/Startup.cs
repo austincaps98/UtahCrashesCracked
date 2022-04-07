@@ -33,12 +33,22 @@ namespace UtahCrashesCracked
                 options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<CrashDbContext>();
+                .AddEntityFrameworkStores<AuthDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSingleton<InferenceSession>(
                 new InferenceSession("Models/crashdata3.onnx")
                 );
+
+            //code for user database connection
+            services.AddDbContext<AuthDbContext>(options =>
+            {
+                options.UseMySql(Configuration["ConnectionStrings:AuthDbContextConnection"]);
+            });
+
+            //Not sure why but this causes an error: Scheme already exists but might be nessessary for migrations
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<AuthDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
