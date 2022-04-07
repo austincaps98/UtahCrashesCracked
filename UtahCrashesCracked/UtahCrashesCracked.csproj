@@ -30,6 +30,10 @@
     <None Remove="Microsoft.ML.OnnxRuntime" />
     <None Remove="Microsoft.ML.OnnxTransformer" />
     <None Remove="Microsoft.ML" />
+    <None Remove="Microsoft.ML.OnnxRuntime.MKLML" />
+    <None Remove="Views\Shared\Components\" />
+    <None Remove="Views\Shared\Components\filters\" />
+    <None Remove="Components\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,13 +57,17 @@
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.23" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.7" />
-    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.11.0" />
     <PackageReference Include="Microsoft.ML.OnnxTransformer" Version="1.7.1" />
     <PackageReference Include="Microsoft.ML" Version="1.7.1" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.8.1" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.MKLML" Version="1.6.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Infrastructure\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\filters\" />
+    <Folder Include="Components\" />
   </ItemGroup>
 </Project>

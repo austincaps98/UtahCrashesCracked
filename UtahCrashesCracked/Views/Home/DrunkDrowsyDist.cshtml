@@ -1,8 +1,80 @@
 ﻿@{
+    ViewData["Title"] = "Distracted Driving Impact";
 }
 <body id="page-top">
     <header class="mastheadDDD background-image">
+        <meta http-equiv="content-security-policy"
+              content="script-src 'self' use.fontawesome.com fonts.googleapis.com" />
+        <div class="container">
+            <div class="masthead-heading text-uppercase display-4" style="text-shadow: 2px 2px 8px #000000">Drunk, Drowsy, and Distracted Driving</div>
+        </div>
     </header>
+    <br />
+    <br />
+    <div class="row justify-content-start p-3">
+        <div class="col-1 p-1"></div>
+        <div class="col-3 text-center my-auto">
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="subheading">Rising Distracted Driver Crash Counts</h4><br />
+                </div>
+                <div class="timeline-body">
+                    <p class="text-muted">As pictured in the chart on the right, the number of total crashes involving distracted driving has risen far above both drunk and drowsy driving in Utah.</p>
+                    <p class="text-muted">Upon exporation of the impact of the different crash counts of the various levels of crash severity, less serious accidents occur related to distracted driving compared to the other categories, this is still a cause for concern.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-7 text-center pr-2">
+            <div class='tableauPlaceholder' style='width: 840px; height: 636px;'><object class='tableauViz' width='840' height='636' style='display:none;'><param name='host_url' value='https%3A%2F%2F10az.online.tableau.com%2F' /> <param name='embed_code_version' value='2' /> <param name='site_root' value='&#47;t&#47;smurthw8' /><param name='name' value='CrashesCracked&#47;DDDComparison' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='showAppBanner' value='false' /></object></div>
+        </div>
+    </div>
+    <br /><br /><br /><br />
+    <div class="row justify-content-start mx-6">
+        <div class="col-1 text-center my-auto"></div>
+        <div class="col-6 text-center border border-4 rounded p-2 mx-4">
+            <!-- Tab Buttons -->
+            <ul id="tabstrip" class="nav nav-tabs justify-content-center" role="tablist">
+                <li class="active">
+                    <a href="#_opentab" class="nav-link active" role="tab" data-toggle="tab">Normal Driver</a>
+                </li>
+                <li class="">
+                    <a href="#_FirstTab" class="nav-link" role="tab" data-toggle="tab">Drowsy Driver</a>
+                </li>
+                <li>
+                    <a href="#_SecondTab" class="nav-link" role="tab" data-toggle="tab">Distracted Driver</a>
+                </li>
+                <li>
+                    <a href="#_ThirdTab" class="nav-link" role="tab" data-toggle="tab">Drunk Driver</a>
+                </li>
+            </ul>
 
-    <h1>What is most dangerous? Drunk? Distracted? Drowsy?</h1>
+            <!-- Tab Content Containers -->
+            <div class="tab-content m-4">
+                <div class="tab-pane active" id="_opentab">
+                    <partial name="_NormalDriver" view-data="ViewData" />
+                </div>
+                <div class="tab-pane fade" id="_FirstTab">
+                    <!-- Call partial view to load initial page load data -->
+                    <partial name="_Drowsy" view-data="ViewData" />
+                </div>
+                <div class="tab-pane fade" id="_SecondTab">
+                    <partial name="_Distracted" view-data="ViewData" />
+                </div>
+                <div class="tab-pane fade" id="_ThirdTab">
+                    <partial name="_Dui" view-data="ViewData" />
+                </div>
+            </div>
+        </div>
+        <div class="col-4 text-center my-auto">
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="subheading">Impact of Driver Alertness on Crash Severity</h4><br />
+                </div>
+                <div class="timeline-body">
+                    <p class="text-muted">How does driver alertness impact the probability of injuries or fatalities in a car accident? </p>
+                    <p class="text-muted">Explore the predicted crash severity of an accident under different levels of driver alertness in the widget to the left.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
