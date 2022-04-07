@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<br />
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-6 text-center">
+        <div class="timeline-panel pl-1">
+            <div class="timeline-heading pl-2">
+                <h3>Predicted Crash Severity : @ViewBag.normaldriver</h3>
+                <h6 class="subheading">
+                    @if (ViewBag.seatbelt == "1")
+                    {<p>Minor accident with no injuries</p>}
+                    else if (ViewBag.seatbelt == "2")
+                    {<p>Minor accident with possible injuries</p>}
+                    else if (ViewBag.seatbelt == "3")
+                    {<p>Accident with minor injuries</p>}
+                    else if (ViewBag.seatbelt == "4")
+                    {<p>Accident with serious injuries</p>}
+                    else
+                    {<p>Major accident with one or more fatalities</p>}
+                </h6>
+            </div>
+            <div class="timeline-body"><p class="text-muted">An average driver in the USA reports on making 2.2 driving trips per day,
+                spending 50.6 minutes on the road and driving <a href="https://aaafoundation.org/wp-content/uploads/2018/02/18-0019_AAAFTS-ADS-Research-Brief.pdf">31.5 miles</a>.
+                <br /><br />An average driver is focused on the road, and is not overly tired or distracted.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-5 text-center my-auto">
+        <img class="border border-1 my-auto" width=90% src="/assets/img/normaldriver.png" />
+    </div>
+</div>
+<br />

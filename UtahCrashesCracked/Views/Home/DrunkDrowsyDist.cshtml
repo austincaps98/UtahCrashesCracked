@@ -2,7 +2,55 @@
 }
 <body id="page-top">
     <header class="mastheadDDD background-image">
+        <meta http-equiv="content-security-policy"
+              content="script-src 'self' use.fontawesome.com fonts.googleapis.com" />
+        <div class="container">
+            <div class="masthead-heading text-uppercase display-4" style="text-shadow: 2px 2px 8px #000000">Drunk, Drowsy, and Distracted Driving</div>
+        </div>
     </header>
+    <br />
+    <br />
+    <div class="row justify-content-start p-3">
+        <div class="col-6 text-center border border-4 rounded p-2 mx-4">
+            <h2 class="p-1">IMPACT ON CRASH SEVERITY</h2>
+            <!-- Tab Buttons -->
+            <ul id="tabstrip" class="nav nav-tabs justify-content-center" role="tablist">
+                <li class="active">
+                    <a href="#_opentab" class="nav-link active" role="tab" data-toggle="tab">Normal Driver</a>
+                </li>
+                <li class="">
+                    <a href="#_FirstTab" class="nav-link" role="tab" data-toggle="tab">Drowsy Driver</a>
+                </li>
+                <li>
+                    <a href="#_SecondTab" class="nav-link" role="tab" data-toggle="tab">Distracted Driver</a>
+                </li>
+                <li>
+                    <a href="#_ThirdTab" class="nav-link" role="tab" data-toggle="tab">Drunk Driver</a>
+                </li>
+            </ul>
 
-    <h1>What is most dangerous? Drunk? Distracted? Drowsy?</h1>
+            <!-- Tab Content Containers -->
+            <div class="tab-content m-4">
+                <div class="tab-pane active" id="_opentab">
+                    <partial name="_NormalDriver" view-data="ViewData" />
+                </div>
+                <div class="tab-pane fade" id="_FirstTab">
+                    <!-- Call partial view to load initial page load data -->
+                    <partial name="_Drowsy" view-data="ViewData" />
+                </div>
+                <div class="tab-pane fade" id="_SecondTab">
+                    <partial name="_Distracted" view-data="ViewData" />
+                </div>
+                <div class="tab-pane fade" id="_ThirdTab">
+                    <partial name="_Dui" view-data="ViewData" />
+                </div>
+            </div>
+            @*<div class="col-1 text-center "></div>*@
+        </div>
+        <div class="col-5 text-center ">
+            <p>Put interesting data later</p>
+        </div>
+    </div>
+
+
 </body>

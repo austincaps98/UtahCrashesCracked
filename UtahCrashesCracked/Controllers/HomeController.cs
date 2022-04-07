@@ -70,6 +70,54 @@ namespace UtahCrashesCracked.Controllers
 
         public IActionResult DrunkDrowsyDist()
         {
+            var data = new InputData
+            {pedestrian_involved = 0,bicyclist_involved = 0,motorcycle_involved = 0,improper_restraint = 0,unrestrained = 0,dui = 0,intersection_related = 0,
+                overturn_rollover = 0,older_driver_involved = 0,single_vehicle = 0,distracted_driving = 0,drowsy_driving = 0,roadway_departure = 0,city_SALT_LAKE_CITY = 0};
+            //Normal Driving 
+            var result = _session.Run(new List<NamedOnnxValue>
+            {
+                NamedOnnxValue.CreateFromTensor("float_input", data.AsTensor())
+            });
+            Tensor<float> score = result.First().AsTensor<float>();
+            var prediction = new Prediction { PredictedValue = score.First() };
+            ViewBag.normaldriver = Convert.ToString(Math.Round(prediction.PredictedValue));
+            result.Dispose();
+
+            //Distracted
+            data.distracted_driving = 1;
+            result = _session.Run(new List<NamedOnnxValue>
+            {
+                NamedOnnxValue.CreateFromTensor("float_input", data.AsTensor())
+            });
+            score = result.First().AsTensor<float>();
+            prediction = new Prediction { PredictedValue = score.First() };
+            ViewBag.distracted_driving = (Convert.ToString(Math.Round(prediction.PredictedValue)));
+            result.Dispose();
+
+            //Drowsy
+            data.distracted_driving = 0;
+            data.drowsy_driving = 1;
+            result = _session.Run(new List<NamedOnnxValue>
+            {
+                NamedOnnxValue.CreateFromTensor("float_input", data.AsTensor())
+            });
+            score = result.First().AsTensor<float>();
+            prediction = new Prediction { PredictedValue = score.First() };
+            ViewBag.drowsy_driving = Convert.ToString(Math.Round(prediction.PredictedValue));
+            result.Dispose();
+
+            //DUI
+            data.drowsy_driving = 0;
+            data.dui = 1;
+            result = _session.Run(new List<NamedOnnxValue>
+            {
+                NamedOnnxValue.CreateFromTensor("float_input", data.AsTensor())
+            });
+            score = result.First().AsTensor<float>();
+            prediction = new Prediction { PredictedValue = score.First() };
+            ViewBag.dui = Convert.ToString(Math.Round(prediction.PredictedValue));
+            result.Dispose();
+
             return View();
         }
 
