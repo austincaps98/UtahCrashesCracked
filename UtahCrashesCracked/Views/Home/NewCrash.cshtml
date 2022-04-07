@@ -42,7 +42,13 @@
         </div>
         <div class="form-group">
             <label asp-for="county_name">County Name:</label>
-            <input asp-for="county_name" class="form-control"/>
+            <select asp-for="county_name">
+                <option value="">Select a county</option>
+                @foreach (string c in ViewBag.Counties)
+                {
+                    <option value="@c">@c</option>
+                }
+            </select>
         </div>
         <div class="form-group">
             <label asp-for="crash_severity_id">Crash Severity ID:</label>

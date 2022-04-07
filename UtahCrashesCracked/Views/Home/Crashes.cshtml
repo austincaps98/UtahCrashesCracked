@@ -6,22 +6,58 @@
 
 @model CrashesViewModel
 
-<div class="col mx-4 mt-4 text-center">
+@*<div class="col mx-4 mt-4 text-center">
     <vc:filters></vc:filters>
-</div>
+</div>*@
+<div class="col m-4 float-end">
 
-<div class="col-10 float-end">
+    <a class="btn btn-primary" href="/Home/Crashes">View All</a>
     @*Search*@
-
     <row class="row m-4">
         <form class="col-5" method="post" asp-controller="Home" asp-action="Crashes">
             <div class="form-group">
-                <row class="row">
-                    <label asp-for="CrashQuery.SearchQuery">Search:</label>
-                </row>
+
+                @*CITY AND ROAD NAME*@
+                <div class="col mx-2">
+                    <label asp-for="CrashQuery.SearchQuery">Search By City or Road Name:</label>
+                    <input id="SearchQuery" asp-for="CrashQuery.SearchQuery" class="form-control"
+                           placeholder="Search by city or street name" />
+                </div>
+
+                @*FILTER BY COUNTY*@
+                <div class="col mx-2">
+                    <label asp-for="CrashQuery.SearchQuery">Filter by County:</label>
+                    <select class="form-control" asp-for="CrashQuery.County">
+                        <option value="" placeholder="Select a County"></option>
+                        @foreach (string c in ViewBag.Counties)
+                        {
+                            <option id="County" value="@c">@c</option>
+                        }
+                    </select>
+                </div>
+
+                @*DATE*@
+                <div class="col mx-2">
+                    <label asp-for="CrashQuery.Date">Search by Date:</label>
+                    <input id="Date" asp-for="CrashQuery.Date" class="form-control"
+                           placeholder="Select a Date" />
+                </div>
+
+                @*SEVERITY*@
+                <div class="mx-2">
+                    <label asp-for="CrashQuery.Severity">Filter by Severity:</label>
+                    <select asp-for="CrashQuery.Severity" class="form-control">
+                        <option value="0" placeholder="Select a Crash Severity Level"></option>
+                        <option value="1">1: No Injury</option>
+                        <option value="2">2: Possible Injury</option>
+                        <option value="3">3: Suspected Minor Injury</option>
+                        <option value="4">4: Suspected Serious Injury</option>
+                        <option value="5">5: Fatal</option>
+                    </select>
+                </div>
+
                 <row class="row">
                     <div class="col">
-                        <input id="firstName" asp-for="CrashQuery.SearchQuery" class="form-control" />
                     </div>
                     <div class="col">
                         <input type="submit" class="btn btn-primary ml-1" value="Go" />

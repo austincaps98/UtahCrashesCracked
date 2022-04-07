@@ -41,6 +41,13 @@ namespace UtahCrashesCracked.Controllers
         {
             int pageSize = 25;
 
+            ViewBag.Counties = _context.crashes
+                .Where(x => x.county_name != "")
+                .Select(x => x.county_name)
+                .Distinct()
+                .OrderBy(x => x)
+                .ToList();
+
             var x = new CrashesViewModel
             {
                 Crashes = _context.crashes
@@ -67,25 +74,42 @@ namespace UtahCrashesCracked.Controllers
         {
             int pageSize = 25;
 
+            ViewBag.Counties = _context.crashes
+                .Where(x => x.county_name != "")
+                .Select(x => x.county_name)
+                .Distinct()
+                .OrderBy(x => x)
+                .ToList();
+
             string query = model.CrashQuery.SearchQuery;
+
+            string county = model.CrashQuery.County;
+
+            DateTime date = model.CrashQuery.Date;
+
+            int severity = model.CrashQuery.Severity;
 
             var x = new CrashesViewModel
             {
                 Crashes = _context.crashes
-                .Where(c => c.county_name.Contains(query) ||
-                c.city.Contains(query) ||
-                c.main_road_name.Contains(query))
+                .Where((c => c.city.Contains(query) || c.main_road_name.Contains(query) || query == null))
+                .Where(c => c.county_name == county || county == null)
+                .Where(c => c.crash_datetime.Month == date.Month || date.ToString() == "01/01/0001 00:00:00")
+                .Where(c => c.crash_severity_id == severity || severity == 0)
                 .OrderBy(c => c.crash_datetime)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumCrashes = (model.CrashQuery.SearchQuery == null
+                    TotalNumCrashes = (model.CrashQuery == null
                     ? _context.crashes.Count()
-                    : _context.crashes.Where(x => x.county_name.Contains(query) ||
-                    x.city.Contains(query) ||
-                    x.main_road_name.Contains(query)).Count()),
+                    : _context.crashes
+                    .Where((c => c.city.Contains(query) || c.main_road_name.Contains(query) || query == null))
+                    .Where(c => c.county_name == county || county == null)
+                    .Where(c => c.crash_datetime.Month == date.Month || date.ToString() == "01/01/0001 00:00:00")
+                    .Where(c => c.crash_severity_id == severity || severity == 0)
+                    .Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
                 }
@@ -213,6 +237,13 @@ namespace UtahCrashesCracked.Controllers
         [HttpGet]
         public IActionResult NewCrash()
         {
+            ViewBag.Counties = _context.crashes
+                .Where(x => x.county_name != "")
+                .Select(x => x.county_name)
+                .Distinct()
+                .OrderBy(x => x)
+                .ToList();
+
             return View();
         }
         [HttpPost]
