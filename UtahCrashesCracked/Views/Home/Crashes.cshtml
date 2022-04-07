@@ -6,11 +6,11 @@
 
 @model CrashesViewModel
 
-<div class="col">Put something here</div>
+<div class="col m-4 text-center">Put something here</div>
 
 <div class="col-10 float-end">
     @*Search*@
-    <row class="row mx-4">
+    <row class="row m-4">
         <form class="col-5" method="post" asp-action="Crashes">
             <div class="form-group">
                 <label>Search:</label>
@@ -31,17 +31,15 @@
                  class="btn-group pull-right m-1">
             </div>
 
-
-<a asp-controller="Home" asp-action="NewCrash">Add New Crash</a>
-
-<div class="m-4">
-
             <a href="/Home/Crashes/pageNum=10100" class="next btn btn-outline-primary text-dark">Last &raquo;</a>
 
+            <a class="btn btn-primary btn-md float-end" asp-controller="Home" asp-action="NewCrash">Add New Crash</a>
 
         </div>
 
+
     </row>
+
 
     <row class="row mx-4">
 
@@ -53,6 +51,7 @@
                 <thead>
                     <tr>
                         <th>Date:</th>
+                        <th>Time:</th>
                         <th>County:</th>
                         <th>City:</th>
                         <th>Route:</th>
