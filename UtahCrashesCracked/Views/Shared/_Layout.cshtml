@@ -42,9 +42,13 @@
                     <li class="nav-item">
                         <a class="btn btn-secondary btn-md text-uppercase mx-1 text-dark"
                            asp-controller="Home" asp-action="crashes">View Dataset</a>
+
                     </li>
                 </ul>
                 <partial name="_LoginPartial"/>
+                @*<a class="nav-item nav-link btn btn-primary text-dark float-right" href="https://crashescsignin.auth.us-east-1.amazoncognito.com/login?client_id=s9ihqs068jl48ni663015pov8&response_type=token&scope=email+openid+phone+profile&redirect_uri=https://crashescracked.com" >
+            LOGIN
+        </a>*@
             </div>
         </div>
     </nav>
@@ -70,11 +74,16 @@
         </nav>*@
     @*<div class="container">
         <main role="main" class="pb-3">*@
-    <section>
-        @RenderBody()
+    <section class="page-section">
+
+        <row class="row">
+            @RenderBody()
+        </row>
+
     </section>
     @*</main>
         </div>*@
+
 
     <footer class="footer py-4">
         <div class="container">
@@ -90,8 +99,8 @@
                     <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </row>
 
     @*<footer class="border-top footer text-muted">
         <div class="container">

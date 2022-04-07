@@ -25,35 +25,46 @@ namespace UtahCrashesCracked.Controllers
             _session = session;
         }
 
-        public IActionResult Index( int pageNum = 1)
+        public IActionResult Index()
         {
-            var blah = _context.crashes
-                .FromSqlRaw("select * from crashes where crash_severity_id = 5")
-                .ToList();
+            //var blah = _context.crashes
+            //    .FromSqlRaw("select * from crashes where crash_severity_id = 5")
+            //    .ToList();
 
-            return View(blah);
+            //return View(blah);
+            return View();
         }
 
-        public IActionResult Crashes(int pageNum = 1)
+        [HttpGet]
+        public IActionResult Crashes(string county, int pageNum = 1)
         {
             int pageSize = 25;
 
             var x = new CrashesViewModel
             {
                 Crashes = _context.crashes
+                .Where(c => c.county_name == county || county == null)
                 .OrderBy(c => c.crash_datetime)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumCrashes = _context.crashes.Count(),
+                    TotalNumCrashes = (county == null
+                    ? _context.crashes.Count()
+                    : _context.crashes.Where(x => x.county_name == county).Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
                 }
             };
 
             return View(x);
+        }
+
+        [HttpPost]
+        public IActionResult Crashes()
+        {
+            return View();
         }
 
 
@@ -176,6 +187,64 @@ namespace UtahCrashesCracked.Controllers
             result.Dispose();
 
             return View("Seatbelts");
+        }
+        [HttpGet]
+        public IActionResult NewCrash()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult NewCrash(Crash c)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(c);
+                _context.SaveChanges();
+
+                return View("Confirmation", c);
+            }
+            else
+            {
+                return View();
+            }
+
+        }
+        [HttpGet]
+        public IActionResult Edit(int crashid)
+        {
+
+            var crash = _context.crashes.Single(x => x.crash_id == crashid);
+
+            return View("NewCrash", crash);
+        }
+        [HttpPost]
+        public IActionResult Edit (Crash c)
+        {
+            _context.Update(c);
+            _context.SaveChanges();
+
+            return View("Confirmation");
+        }
+        [HttpGet]
+        public IActionResult Delete(int crashid)
+        {
+            var crash = _context.crashes.Single(x => x.crash_id == crashid);
+            return View(crash);
+        }
+        [HttpPost]
+        public IActionResult Delete (Crash c)
+        {
+            _context.crashes.Remove(c);
+            _context.SaveChanges();
+
+            return View("Confirmation");
+
+        }
+
+        public IActionResult Summary (int crashid)
+        {
+            var crash = _context.crashes.Single(x => x.crash_id == crashid);
+            return View(crash);
         }
     }
 }

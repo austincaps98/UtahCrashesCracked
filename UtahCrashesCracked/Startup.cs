@@ -37,7 +37,7 @@ namespace UtahCrashesCracked
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSingleton<InferenceSession>(
-                new InferenceSession("Models/crashdata3.onnx")
+                new InferenceSession("Models/crashdata4.onnx")
                 );
         }
 
@@ -65,6 +65,22 @@ namespace UtahCrashesCracked
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "Filter",
+                    pattern: "/Crashes/{county}/Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Crashes" }
+                    );
+
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "/Crashes/Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
+
+                endpoints.MapControllerRoute("county",
+                    "/Crashes/{county}",
+                    new { Controller = "Home", action = "Crashes", pageNum = 1 });
+
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
