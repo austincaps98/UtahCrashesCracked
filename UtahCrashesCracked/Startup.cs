@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using UtahCrashesCracked.Models;
 using Microsoft.ML.OnnxRuntime;
+using UtahCrashesCracked.Areas.Identity.Data;
 
 namespace UtahCrashesCracked
 {
@@ -56,9 +57,6 @@ namespace UtahCrashesCracked
                 options.Password.RequiredLength = 8;
                 options.Password.RequiredUniqueChars = 1;
             });
-            //Not sure why but this causes an error: Scheme already exists but might be nessessary for migrations
-            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            //    .AddEntityFrameworkStores<AuthDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

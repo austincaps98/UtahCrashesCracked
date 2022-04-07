@@ -9,6 +9,10 @@
             <a class="nav-link mx-4" style="color: #fed136" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link btn btn-primary btn-md text-uppercase text-dark"
+               asp-controller="Home" asp-action="crashes">Crash Summaries</a>
+        </li>
+        <li class="nav-item">
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button type="submit" class="btn btn-primary btn-md text-uppercase">Logout</button>
             </form>

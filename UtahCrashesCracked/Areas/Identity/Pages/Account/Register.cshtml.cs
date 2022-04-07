@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using UtahCrashesCracked.Areas.Identity.Data;
 
 namespace UtahCrashesCracked.Areas.Identity.Pages.Account
 {

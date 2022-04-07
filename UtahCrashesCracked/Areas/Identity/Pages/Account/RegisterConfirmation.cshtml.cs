@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using UtahCrashesCracked.Areas.Identity.Data;
 
 namespace UtahCrashesCracked.Areas.Identity.Pages.Account
 {

@@ -9,7 +9,7 @@ using UtahCrashesCracked.Data;
 namespace UtahCrashesCracked.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20220407130235_Initial-Create")]
+    [Migration("20220407191021_Initial-Create")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

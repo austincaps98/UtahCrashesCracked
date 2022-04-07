@@ -13,6 +13,12 @@
     <Compile Remove="Migrations\20220407124512_Initial-Create.Designer.cs" />
     <Compile Remove="Migrations\20220407125950_Initial-Create.cs" />
     <Compile Remove="Migrations\20220407125950_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20220407130235_Initial-Create.cs" />
+    <Compile Remove="Migrations\20220407130235_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20220407140141_Initial-Create.cs" />
+    <Compile Remove="Migrations\20220407140141_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20220407140247_Initial-Create.cs" />
+    <Compile Remove="Migrations\20220407140247_Initial-Create.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,7 +59,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Infrastructure\" />
   </ItemGroup>
