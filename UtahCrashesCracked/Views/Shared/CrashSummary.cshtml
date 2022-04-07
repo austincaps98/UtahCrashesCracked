@@ -7,10 +7,10 @@
 {
 <tr>
     <td>@Model.crash_datetime.Date.ToString("MMMM d, yyyy")</td>
-    <td>@Model.crash_datetime.Date.ToString("h:mm tt")</td>
+    <td>@Model.crash_datetime.ToString("h:mm tt")</td>
     <td>@Model.county_name</td>
     <td>@Model.city</td>
-    <td>@Model.route</td>
+    <td>@Model.main_road_name</td>
     <td>@Model.crash_severity_id</td>
 
     <td class="text-center"><a class="btn btn-sm btn-primary text-dark" asp-controller="home" asp-action="Summary" asp-route-crashid="@Model.crash_id">Summary</a></td>
