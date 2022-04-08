@@ -260,6 +260,8 @@ namespace UtahCrashesCracked.Controllers
                 .OrderBy(x => x)
                 .ToList();
 
+            ViewBag.Page = "New";
+
             return View();
         }
         [HttpPost]
@@ -267,13 +269,28 @@ namespace UtahCrashesCracked.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(c);
-                _context.SaveChanges();
+                if (c.crash_id == 0)
+                {
+                    _context.Add(c);
+                    _context.SaveChanges();
+
+                }
+                else
+                {
+                    _context.Update(c);
+                    _context.SaveChanges();
+                }
 
                 return View("Confirmation", c);
             }
             else
             {
+                ViewBag.Counties = _context.crashes
+                    .Where(x => x.county_name != "")
+                    .Select(x => x.county_name)
+                    .Distinct()
+                    .OrderBy(x => x)
+                    .ToList();
                 return View();
             }
 
@@ -281,24 +298,33 @@ namespace UtahCrashesCracked.Controllers
         [HttpGet]
         public IActionResult Edit(int crashid)
         {
+            ViewBag.Page = "Edit";
+
             ViewBag.Counties = _context.crashes
-                .Where(x => x.county_name != "")
-                .Select(x => x.county_name)
-                .Distinct()
-                .OrderBy(x => x)
-                .ToList();
+            .Where(x => x.county_name != "")
+            .Select(x => x.county_name)
+            .Distinct()
+            .OrderBy(x => x)
+            .ToList();
 
             var crash = _context.crashes.Single(x => x.crash_id == crashid);
 
             return View("NewCrash", crash);
         }
         [HttpPost]
-        public IActionResult Edit (Crash c)
+        public IActionResult Edit(Crash c)
         {
-            _context.Update(c);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.Update(c);
+                _context.SaveChanges();
 
-            return View("Confirmation");
+                return View("Confirmation");
+            }
+            else
+            {
+                return View(c);
+            }
         }
         [HttpGet]
         public IActionResult Delete(int crashid)
