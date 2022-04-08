@@ -321,5 +321,10 @@ namespace UtahCrashesCracked.Controllers
             var crash = _context.crashes.Single(x => x.crash_id == crashid);
             return View(crash);
         }
+
+        public IActionResult Privacy ()
+        {
+            return View();
+        }
     }
 }
