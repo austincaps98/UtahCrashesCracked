@@ -23,8 +23,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - UtahCrashesCracked</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
-    @*<link rel="stylesheet" href="~/css/site.css" />*@
-    <!--<link rel="stylesheet" href="~/css/styles.css" />
+@*<link rel="stylesheet" href="~/css/site.css" />*@
+<!--<link rel="stylesheet" href="~/css/styles.css" />
 </head>-->
 <body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
@@ -35,17 +35,20 @@
                 <i class="fas fa-bars ms-1"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase mx-4 py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#services">Summary</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/home/seatbelts">Seatbelts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/home/DrunkDrowsyDist">Most Dangerous</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Summaries">Explore Crash Data</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Seatbelts">Seatbelts</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="DrunkDrowsyDist">Distracted Driving</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary btn-md text-uppercase mx-1 text-dark"
+                           asp-controller="Home" asp-action="crashes">View Dataset</a>
+
+                    </li>
                 </ul>
-                <partial name="_LoginPartial.cshtml" />
-                <!----<a class="btn btn-primary text-dark float-right" href="https://crashescsignin.auth.us-east-1.amazoncognito.com/login?client_id=s9ihqs068jl48ni663015pov8&response_type=token&scope=email+openid+phone+profile&redirect_uri=https://crashescracked.com" >
-                    LOGIN
-                </a>-->
+                <partial name="_LoginPartial" />
+                @*<a class="nav-item nav-link btn btn-primary text-dark float-right" href="https://crashescsignin.auth.us-east-1.amazoncognito.com/login?client_id=s9ihqs068jl48ni663015pov8&response_type=token&scope=email+openid+phone+profile&redirect_uri=https://crashescracked.com" >
+                        LOGIN
+                    </a>*@
             </div>
         </div>
     </nav>
@@ -80,6 +83,7 @@
     </section>
     @*</main>
         </div>*@
+
 
     <row>
     <footer class="footer py-4">
