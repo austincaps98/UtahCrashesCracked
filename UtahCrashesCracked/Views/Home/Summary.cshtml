@@ -13,59 +13,53 @@
     <div class="col m-4">
         <table class="table table-bordered table-striped">
 
-                <tr>
-                    <th>Date</th>
-                    <th>Time of Day</th>
-                    <th>Route Number</th>
-                    <th>Route Name</th>
-                    <th>Mile Point</th>
-                    <th>Latitude</th>
-                    <th>Longitude</th>
-                    <th>City</th>
-                    <th>County</th>
-                    <th>Crash Severity ID</th>
-                </tr>
+            <tr>
+                <th>Date</th>
+                <th>Time of Day</th>
+                <th>Route Number</th>
+                <th>Route Name</th>
+                <th>Mile Point</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>City</th>
+                <th>County</th>
+                <th>Crash Severity ID</th>
+            </tr>
 
-                <tr>
-                    <td>@Model.crash_datetime.ToString("MMMM d, yyyy")</td>
-                    <td>@Model.crash_datetime.ToString("h:mm tt")</td>
-                    <td>@Model.route</td>
-                    <td>@Model.main_road_name</td>
-                    <td>@Model.milepoint</td>
-                    <td>@Model.lat_utm_y</td>
-                    <td>@Model.long_utm_x</td>
-                    <td>@Model.city</td>
-                    <td>@Model.county_name</td>
-                    <td>@Model.crash_severity_id</td>
-                </tr>
-        </table>
-    </div>
+            <tr>
+                <td>@Model.crash_datetime.ToString("MMMM d, yyyy")</td>
+                <td>@Model.crash_datetime.ToString("h:mm tt")</td>
+                <td>@Model.route</td>
+                <td>@Model.main_road_name</td>
+                <td>@Model.milepoint</td>
+                <td>@Model.lat_utm_y</td>
+                <td>@Model.long_utm_x</td>
+                <td>@Model.city</td>
+                <td>@Model.county_name</td>
+                <td>@Model.crash_severity_id</td>
+            </tr>
 
-</row>
+            <tr>
+                <td colspan="10"></td>
+            </tr>
 
-<row class="row text-center">
-    <table class="table table-bordered table-striped">
-
-        <thead>
             <tr>
                 <th>Work Zone Related</th>
                 <th>Pedestrian Involved</th>
                 <th>Bicyclist Involved</th>
             </tr>
-        </thead>
 
-        <tbody>
             <tr>
                 <td>@Model.work_zone_related</td>
                 <td>@Model.pedestrian_involved</td>
                 <td>@Model.bicyclist_involved</td>
             </tr>
-        </tbody>
+            
+        </table>
+    </div>
 
-    </table>
 </row>
 
-    
     <div class="row">
 
         <div class="col-6">
