@@ -51,7 +51,7 @@ namespace UtahCrashesCracked.Controllers
             var x = new CrashesViewModel
             {
                 Crashes = _context.crashes
-                .Where(c => c.county_name == county || county == null) 
+                .Where(c => c.county_name == county || county == null)
                 .OrderBy(c => c.crash_datetime)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
@@ -62,8 +62,8 @@ namespace UtahCrashesCracked.Controllers
                     ? _context.crashes.Count()
                     : _context.crashes.Where(x => x.county_name == county).Count()),
                     CrashesPerPage = pageSize,
-                    CurrentPage = pageNum
-                }
+                    CurrentPage = pageNum,
+                },              
             };
 
             return View(x);
@@ -94,7 +94,7 @@ namespace UtahCrashesCracked.Controllers
                 Crashes = _context.crashes
                 .Where((c => c.city.Contains(query) || c.main_road_name.Contains(query) || query == null))
                 .Where(c => c.county_name == county || county == null)
-                .Where(c => c.crash_datetime.Month == date.Month || date.ToString() == "01/01/0001 00:00:00")
+                .Where(c => c.crash_datetime.Date == date.Date || date.ToString() == "01/01/0001 00:00:00")
                 .Where(c => c.crash_severity_id == severity || severity == 0)
                 .OrderBy(c => c.crash_datetime)
                 .Skip((pageNum - 1) * pageSize)
@@ -107,7 +107,7 @@ namespace UtahCrashesCracked.Controllers
                     : _context.crashes
                     .Where((c => c.city.Contains(query) || c.main_road_name.Contains(query) || query == null))
                     .Where(c => c.county_name == county || county == null)
-                    .Where(c => c.crash_datetime.Month == date.Month || date.ToString() == "01/01/0001 00:00:00")
+                    .Where(c => c.crash_datetime.Date == date.Date || date.ToString() == "01/01/0001 00:00:00")
                     .Where(c => c.crash_severity_id == severity || severity == 0)
                     .Count()),
                     CrashesPerPage = pageSize,

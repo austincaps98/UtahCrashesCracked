@@ -11,7 +11,8 @@
 </div>*@
 <div class="col m-4 float-end">
 
-    <a class="btn btn-primary" href="/Home/Crashes">View All</a>
+        <a class="btn btn-primary" href="/Home/Crashes">Clear Filters</a>
+
     @*Search*@
     <row class="row m-4">
         <form class="col-5" method="post" asp-controller="Home" asp-action="Crashes">
@@ -27,8 +28,8 @@
                 @*FILTER BY COUNTY*@
                 <div class="col mx-2">
                     <label asp-for="CrashQuery.SearchQuery">Filter by County:</label>
-                    <select class="form-control" asp-for="CrashQuery.County">
-                        <option value="" placeholder="Select a County"></option>
+                    <select class="select form-control" asp-for="CrashQuery.County">
+                        <option value="" placeholder="Select a County">Select a County</option>
                         @foreach (string c in ViewBag.Counties)
                         {
                             <option id="County" value="@c">@c</option>
@@ -39,15 +40,14 @@
                 @*DATE*@
                 <div class="col mx-2">
                     <label asp-for="CrashQuery.Date">Search by Date:</label>
-                    <input id="Date" asp-for="CrashQuery.Date" class="form-control"
-                           placeholder="Select a Date" />
+                    <input id="Date" asp-for="CrashQuery.Date" class="form-control"/>
                 </div>
 
                 @*SEVERITY*@
                 <div class="mx-2">
                     <label asp-for="CrashQuery.Severity">Filter by Severity:</label>
-                    <select asp-for="CrashQuery.Severity" class="form-control">
-                        <option value="0" placeholder="Select a Crash Severity Level"></option>
+                    <select asp-for="CrashQuery.Severity" class="select form-control">
+                        <option value="0" placeholder="Select a Crash Severity Level">Select a Crash Severity Level</option>
                         <option value="1">1: No Injury</option>
                         <option value="2">2: Possible Injury</option>
                         <option value="3">3: Suspected Minor Injury</option>
@@ -95,7 +95,7 @@
     <row class="row mx-4">
 
 
-        <div >
+        <div>
 
             <table class="table table-striped table-bordered">
 
