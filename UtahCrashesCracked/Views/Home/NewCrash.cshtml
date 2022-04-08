@@ -27,12 +27,12 @@
             <div asp-validation-summary="All"></div>
             <div class="form-group col-md-6">
                 <label asp-for="crash_id">Crash ID:</label>
-                <input asp-for="crash_id" class="form-control" type="hidden"/>
+                <input asp-for="crash_id" class="form-control"/>
             </div>
             }
             <div class="form-group col-md-6">
                 <label asp-for="crash_datetime">Crash Date Time:</label>
-                <input asp-for="crash_datetime" class="form-control" />
+                <input min="2016-01-01" max="@DateTime.Now" asp-for="crash_datetime" class="form-control" />
             </div>
             <div class="form-group col-md-6">
                 <label asp-for="route">Route:</label>

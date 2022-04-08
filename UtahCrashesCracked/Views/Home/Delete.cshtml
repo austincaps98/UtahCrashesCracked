@@ -2,10 +2,23 @@
     ViewData["Title"] = "Delete";
 }
 @model UtahCrashesCracked.Models.Crash;
-<h2>Confirm Deletion</h2>
-<p>Are you sure you want to delete the record for instance @Model.crash_id in @Model.city?</p>
-<form method="post" asp-action="Delete">
-    <button type="submit">Delete</button>
+<h2 class="m-4">Confirm Deletion</h2>
+<h5 class="mx-4 my-2">Are you sure you want to delete the record for:</h5>
+<ul class="mx-4 my-2" style="list-style-type:none">
+    <li><h5>Crash #: <span class="text-muted">@Model.crash_id</span> </h5></li>
+    <li><h5>Date: <span class="text-muted">@Model.crash_datetime.ToString("MMMM d, yyyy – @h:mm tt")</span></h5></li>
+    @if (Model.county_name != null)
+    {
+        <li><h5>County: @Model.county_name</h5></li>
+    }
+
+    @if (Model.city != null)
+    {
+        <li><h5>City: @Model.city</h5></li>
+    }
+</ul>
+<form class="m-4" method="post" asp-action="Delete">
+    <button class="btn btn-outline-secondary" type="submit">Delete</button>
     <a asp-controller="Home" asp-action="crashes" class="btn btn-primary">Cancel</a>
 
     <input type="hidden" asp-for="crash_id"/>
