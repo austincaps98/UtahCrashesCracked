@@ -271,6 +271,12 @@ namespace UtahCrashesCracked.Controllers
         [HttpGet]
         public IActionResult Edit(int crashid)
         {
+            ViewBag.Counties = _context.crashes
+                .Where(x => x.county_name != "")
+                .Select(x => x.county_name)
+                .Distinct()
+                .OrderBy(x => x)
+                .ToList();
 
             var crash = _context.crashes.Single(x => x.crash_id == crashid);
 
