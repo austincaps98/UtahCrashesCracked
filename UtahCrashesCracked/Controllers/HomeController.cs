@@ -261,8 +261,9 @@ namespace UtahCrashesCracked.Controllers
                 .ToList();
 
             ViewBag.Page = "New";
+            Crash c = new Crash();
 
-            return View();
+            return View(c);
         }
         [HttpPost]
         public IActionResult NewCrash(Crash c)
