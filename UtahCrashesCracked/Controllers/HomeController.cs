@@ -146,7 +146,7 @@ namespace UtahCrashesCracked.Controllers
         public IActionResult DrunkDrowsyDist()
         {
             var data = new InputData
-            {pedestrian_involved = 0,bicyclist_involved = 0,motorcycle_involved = 0,improper_restraint = 0,unrestrained = 0,dui = 0,intersection_related = 0,
+            {pedestrian_involved = 0,bicyclist_involved = 0,motorcycle_involved = 0,improper_restraint = 0,unrestrained = 0,dui = 0,intersection_related = 1,
                 overturn_rollover = 0,older_driver_involved = 0,single_vehicle = 0,distracted_driving = 0,drowsy_driving = 0,roadway_departure = 0,city_SALT_LAKE_CITY = 0};
             //Normal Driving 
             var result = _session.Run(new List<NamedOnnxValue>
@@ -206,7 +206,7 @@ namespace UtahCrashesCracked.Controllers
                 improper_restraint = 0,
                 unrestrained = 0,
                 dui = 0,
-                intersection_related = 0,
+                intersection_related = 1,
                 overturn_rollover = 0,
                 older_driver_involved = 0,
                 single_vehicle = 0,
