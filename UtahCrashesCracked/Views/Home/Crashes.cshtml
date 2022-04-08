@@ -9,118 +9,108 @@
 @*<div class="col mx-4 mt-4 text-center">
     <vc:filters></vc:filters>
 </div>*@
-<div class="col m-4 float-end">
 
-        <a class="btn btn-primary" href="/Home/Crashes">Clear Filters</a>
+@*Search*@
+<form method="post" asp-controller="Home" asp-action="Crashes">
+    <div class="row mx-4 my-2 form-group">
 
-    @*Search*@
-    <row class="row m-4">
-        <form class="col-5" method="post" asp-controller="Home" asp-action="Crashes">
-            <div class="form-group">
+        @*CITY AND ROAD NAME*@
+        <div class="col mx-1">
+            <label asp-for="CrashQuery.SearchQuery">Search By City or Road Name:</label>
+            <input id="SearchQuery" asp-for="CrashQuery.SearchQuery" class="form-control"
+                    placeholder="Type the name of a city or road" />
+        </div>
 
-                @*CITY AND ROAD NAME*@
-                <div class="col mx-2">
-                    <label asp-for="CrashQuery.SearchQuery">Search By City or Road Name:</label>
-                    <input id="SearchQuery" asp-for="CrashQuery.SearchQuery" class="form-control"
-                           placeholder="Search by city or street name" />
-                </div>
+        @*FILTER BY COUNTY*@
+        <div class="col mx-1">
+            <label asp-for="CrashQuery.SearchQuery">Filter by County:</label>
+            <select class="select form-control" asp-for="CrashQuery.County">
+                <option value="" placeholder="Select a County">Select a County</option>
+                @foreach (string c in ViewBag.Counties)
+                {
+                    <option id="County" value="@c">@c</option>
+                }
+            </select>
+        </div>
 
-                @*FILTER BY COUNTY*@
-                <div class="col mx-2">
-                    <label asp-for="CrashQuery.SearchQuery">Filter by County:</label>
-                    <select class="select form-control" asp-for="CrashQuery.County">
-                        <option value="" placeholder="Select a County">Select a County</option>
-                        @foreach (string c in ViewBag.Counties)
-                        {
-                            <option id="County" value="@c">@c</option>
-                        }
-                    </select>
-                </div>
+        @*DATE*@
+        <div class="col mx-1">
+            <label asp-for="CrashQuery.Date">Search by Date:</label>
+            <input id="Date" asp-for="CrashQuery.Date" class="form-control" />
+        </div>
 
-                @*DATE*@
-                <div class="col mx-2">
-                    <label asp-for="CrashQuery.Date">Search by Date:</label>
-                    <input id="Date" asp-for="CrashQuery.Date" class="form-control"/>
-                </div>
+        @*SEVERITY*@
+        <div class="col mx-1">
+            <label asp-for="CrashQuery.Severity">Filter by Severity:</label>
+            <select asp-for="CrashQuery.Severity" class="select form-control">
+                <option value="0" placeholder="Select a Crash Severity Level">Select a Crash Severity Level</option>
+                <option value="1">1: No Injury</option>
+                <option value="2">2: Possible Injury</option>
+                <option value="3">3: Suspected Minor Injury</option>
+                <option value="4">4: Suspected Serious Injury</option>
+                <option value="5">5: Fatal</option>
+            </select>
+        </div>
 
-                @*SEVERITY*@
-                <div class="mx-2">
-                    <label asp-for="CrashQuery.Severity">Filter by Severity:</label>
-                    <select asp-for="CrashQuery.Severity" class="select form-control">
-                        <option value="0" placeholder="Select a Crash Severity Level">Select a Crash Severity Level</option>
-                        <option value="1">1: No Injury</option>
-                        <option value="2">2: Possible Injury</option>
-                        <option value="3">3: Suspected Minor Injury</option>
-                        <option value="4">4: Suspected Serious Injury</option>
-                        <option value="5">5: Fatal</option>
-                    </select>
-                </div>
+    </div>
 
-                <row class="row">
-                    <div class="col">
-                    </div>
-                    <div class="col">
-                        <input type="submit" class="btn btn-primary ml-1" value="Go" />
-                    </div>
-                </row>
-            </div>
-        </form>
+    <row class="row mx-4 my-2">
+        <div class="col">
+            <input type="submit" class="btn btn-primary ml-1" value="Go" />
+            <a class="btn btn-primary float-right" href="/Home/Crashes">Clear Filters</a>
+        </div>
     </row>
+
+</form>
+
+<row class="row mx-4 my-4">
 
     @*// Pagination*@
-    <row class="row mx-4 mt-4">
+    <div>
 
-        <div>
+        <p class="my-1">Showing page @Model.PageInfo.CurrentPage of @Model.PageInfo.TotalPages</p>
+        <p class="my-1">@Model.PageInfo.TotalNumCrashes Total Results</p>
 
-            @*<a class="previous btn btn-outline-primary text-dark">&laquo; First</a>*@
+        @*<a class="previous btn btn-outline-primary text-dark">&laquo; First</a>*@
 
-            <div page-model="@Model.PageInfo" page-action="Crashes" page-class="btn"
-                 page-class-normal="btn-outline-dark" page-class-selected="btn-primary btn-outline-dark text-light" page-classes-enabled="true"
-                 class="btn-group pull-right m-1">
-            </div>
-            @*<a href="/Home/Crashes?pageNum=10100" class="next btn btn-outline-primary text-dark">Next &raquo;</a>*@
-
-            <a class="btn btn-primary btn-md float-end" asp-controller="Home" asp-action="NewCrash">Add New Crash</a>
-
-            <p>Showing page @Model.PageInfo.CurrentPage of @Model.PageInfo.TotalPages</p>
-            <p>@Model.PageInfo.TotalNumCrashes Total Results</p>
-
-
+        <div page-model="@Model.PageInfo" page-action="Crashes" page-class="btn"
+                page-class-normal="btn-outline-dark" page-class-selected="btn-primary btn-outline-dark text-light" page-classes-enabled="true"
+                class="btn-group pull-right m-1">
         </div>
 
+        @*<a href="/Home/Crashes?pageNum=10100" class="next btn btn-outline-primary text-dark">Next &raquo;</a>*@
 
-    </row>
-
-
-    <row class="row mx-4">
+        <a class="btn btn-primary btn-md mx-4" asp-controller="Home" asp-action="NewCrash">Add New Crash</a>
 
 
-        <div>
 
-            <table class="table table-striped table-bordered">
+    </div>
 
-                <thead>
-                    <tr>
-                        <th>Date:</th>
-                        <th>Time:</th>
-                        <th>County:</th>
-                        <th>City:</th>
-                        <th>Road:</th>
-                        <th>Severity:</th>
-                    </tr>
-                </thead>
+</row>
 
-                <tbody>
-                    @foreach (Crash c in Model.Crashes)
-                    {
-                        <partial name="CrashSummary" model="c" />
-                    }
-                </tbody>
 
-            </table>
+<div>
 
-        </div>
+    <table class="table table-striped table-bordered">
 
-    </row>
+        <thead>
+            <tr>
+                <th>Date:</th>
+                <th>Time:</th>
+                <th>County:</th>
+                <th>City:</th>
+                <th>Road:</th>
+                <th>Severity:</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (Crash c in Model.Crashes)
+            {
+                <partial name="CrashSummary" model="c" />
+            }
+        </tbody>
+
+    </table>
+
 </div>
-
