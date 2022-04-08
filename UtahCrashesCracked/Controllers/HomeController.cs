@@ -63,7 +63,12 @@ namespace UtahCrashesCracked.Controllers
                     : _context.crashes.Where(x => x.county_name == county).Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum,
-                },              
+                },
+
+                FilterBool = new FilterBool
+                {
+                    filterEmpty = true
+                }
             };
 
             return View(x);
@@ -112,6 +117,11 @@ namespace UtahCrashesCracked.Controllers
                     .Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
+                },
+
+                FilterBool = new FilterBool
+                {
+                    filterEmpty = false
                 }
             };
 
