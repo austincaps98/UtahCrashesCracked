@@ -101,7 +101,7 @@ namespace UtahCrashesCracked.Controllers
                 Crashes = _context.crashes
                 .Where((c => c.city.Contains(query) || c.main_road_name.Contains(query) || query == null))
                 .Where(c => c.county_name == county || county == null)
-                .Where(c => c.crash_datetime.Date == date.Date || date.ToString() == "01/01/0001 00:00:00")
+                .Where(c => c.crash_datetime.Date == date.Date || date.ToUniversalTime().Year.ToString() == "1")
                 .Where(c => c.crash_severity_id == severity || severity == 0)
                 .OrderBy(c => c.crash_datetime)
                 .Skip((pageNum - 1) * pageSize)
@@ -114,11 +114,19 @@ namespace UtahCrashesCracked.Controllers
                     : _context.crashes
                     .Where((c => c.city.Contains(query) || c.main_road_name.Contains(query) || query == null))
                     .Where(c => c.county_name == county || county == null)
-                    .Where(c => c.crash_datetime.Date == date.Date || date.ToString() == "01/01/0001 00:00:00")
+                .Where(c => c.crash_datetime.Date == date.Date || date.ToUniversalTime().Year.ToString() == "1")
                     .Where(c => c.crash_severity_id == severity || severity == 0)
                     .Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
+                },
+
+                CrashQuery = new CrashQuery
+                {
+                    SearchQuery = query,
+                    County = county,
+                    Date = date.ToUniversalTime(),
+                    Severity = severity
                 },
 
                 FilterBool = new FilterBool
