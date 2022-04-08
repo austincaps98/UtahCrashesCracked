@@ -22,7 +22,7 @@
             <div asp-validation-summary="All"></div>
             <div class="form-group col-md-6">
                 <label asp-for="crash_id">Crash ID:</label>
-                <input asp-for="crash_id" class="form-control"/>
+                <input asp-for="crash_id" class="form-control" type="hidden"/>
             </div>
             <div class="form-group col-md-6">
                 <label asp-for="crash_datetime">Crash Date Time:</label>
@@ -65,11 +65,11 @@
             <div class="form-group col-md-6">
                 <label asp-for="crash_severity_id">Crash Severity ID:</label>
                 <select asp-for="crash_severity_id" class="form-control">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="1">1: No Injury</option>
+                    <option value="2">2: Possible Injury</option>
+                    <option value="3">3: Suspected Minor Injury</option>
+                    <option value="4">4: Suspected Serious Injury</option>
+                    <option value="5">5: Fatal</option>
                 </select>
             </div>
             <div class="form-group col-md-6">
