@@ -117,10 +117,6 @@
 
 <row class="mx-4">
     <a class="btn btn-primary" asp-controller="Home" asp-action="Crashes">Back</a>
-
-    @if (new string[] { "Rootkit", "RootBeer", "TAUser" }.Contains(this.User.Identity.Name))
-    {
-        <td class="text-center"><a class="btn btn-outline-secondary" asp-controller="home" asp-action="Edit" asp-route-crashid="@Model.crash_id">Edit</a></td>
-        <td class="text-center"><a class="btn btn-outline-secondary" asp-controller="home" asp-action="Delete" asp-route-crashid="@Model.crash_id">Delete</a></td>
-    }
+    <a class="btn btn-outline-secondary" asp-controller="home" asp-action="Edit" asp-route-crashid="@Model.crash_id">Edit</a>
+    <a class="btn btn-outline-secondary" asp-controller="home" asp-action="Delete" asp-route-crashid="@Model.crash_id">Delete</a>
 </row>
