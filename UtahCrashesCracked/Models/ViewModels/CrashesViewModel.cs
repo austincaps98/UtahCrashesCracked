@@ -7,5 +7,6 @@ namespace UtahCrashesCracked.Models.ViewModels
     {
         public IQueryable<Crash> Crashes { get; set; }
         public PageInfo PageInfo { get; set; }
+        public CrashQuery CrashQuery { get; set; }
     }
 }

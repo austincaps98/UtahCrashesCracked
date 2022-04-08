@@ -21,7 +21,7 @@ namespace UtahCrashesCracked.Models
         public string main_road_name { get; set; }
         public string city { get; set; }
         public string county_name { get; set; }
-        public string crash_severity_id { get; set; }
+        public int crash_severity_id { get; set; }
         public string work_zone_related { get; set; }
         public string pedestrian_involved { get; set; }
         public string bicyclist_involved { get; set; }

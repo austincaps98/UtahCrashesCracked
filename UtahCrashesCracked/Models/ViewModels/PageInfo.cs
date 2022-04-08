@@ -9,5 +9,6 @@ namespace UtahCrashesCracked.Models.ViewModels
 
         // Calculate number of pages needed
         public int TotalPages => (int)Math.Ceiling((double)TotalNumCrashes / CrashesPerPage);
+
     }
 }
