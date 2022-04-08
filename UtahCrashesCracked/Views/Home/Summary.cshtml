@@ -13,7 +13,6 @@
     <div class="col m-4">
         <table class="table table-bordered table-striped">
 
-            <thead>
                 <tr>
                     <th>Date</th>
                     <th>Time of Day</th>
@@ -26,9 +25,7 @@
                     <th>County</th>
                     <th>Crash Severity ID</th>
                 </tr>
-            </thead>
 
-            <tbody>
                 <tr>
                     <td>@Model.crash_datetime.ToString("MMMM d, yyyy")</td>
                     <td>@Model.crash_datetime.ToString("h:mm tt")</td>
@@ -40,12 +37,7 @@
                     <td>@Model.city</td>
                     <td>@Model.county_name</td>
                     <td>@Model.crash_severity_id</td>
-                    <td>@Model.work_zone_related</td>
-                    <td>@Model.pedestrian_involved</td>
-                    <td>@Model.bicyclist_involved</td>
                 </tr>
-            </tbody>
-
         </table>
     </div>
 
