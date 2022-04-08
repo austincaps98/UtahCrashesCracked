@@ -5,7 +5,7 @@
 @model UtahCrashesCracked.Models.Crash;
 
 <div class="row text-center">
-    <h3>Summary : Crash #@Model.crash_id</h3>
+    <h3 class="mt-4">Summary : Crash #@Model.crash_id</h3>
 </div>
 
 <row class="row text-center">
@@ -13,92 +13,110 @@
     <div class="col m-4">
         <table class="table table-bordered table-striped">
 
+            @*ROW1*@
             <tr>
-                <th>Crash ID</th>
-                <th>Date</th>
-                <th>Time of Day</th>
+                <th>Day and Time</th>
                 <th>Route Number</th>
                 <th>Route Name</th>
                 <th>Mile Point</th>
-                <th>Latitude</th>               
+                <th>Crash Severity ID</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
             </tr>
 
             <tr>
-                <td>@Model.crash_id</td>
-                <td>@Model.crash_datetime.ToString("MMMM d, yyyy")</td>
-                <td>@Model.crash_datetime.ToString("h:mm tt")</td>
+                <td>@Model.crash_datetime.ToString("MMMM d, yyyy – @h:mm tt")</td>
                 <td>@Model.route</td>
                 <td>@Model.main_road_name</td>
                 <td>@Model.milepoint</td>
-                <td>@Model.lat_utm_y</td>               
+                <td>@Model.crash_severity_id</td>
+                <td>@Model.lat_utm_y</td>
+                <td>@Model.long_utm_x</td>
             </tr>
 
             <tr>
                 <td colspan="10"></td>
             </tr>
 
+            @*ROW2*@
             <tr>
-                <th>Longitude</th>
                 <th>City</th>
                 <th>County</th>
-                <th>Crash Severity ID</th>
                 <th>Work Zone Related</th>
                 <th>Pedestrian Involved</th>
                 <th>Bicyclist Involved</th>
+                <th>Motorcycle Involved</th>
+                <th>Improper Restraint</th>
             </tr>
 
             <tr>
-                <td>@Model.long_utm_x</td>
                 <td>@Model.city</td>
                 <td>@Model.county_name</td>
-                <td>@Model.crash_severity_id</td>
                 <td>@Model.work_zone_related</td>
                 <td>@Model.pedestrian_involved</td>
                 <td>@Model.bicyclist_involved</td>
+                <td>@Model.motorcycle_involved</td>
+                <td>@Model.improper_restraint</td>
             </tr>
-            
+
+            <tr>
+                <td colspan="10"></td>
+            </tr>
+
+            @*ROW3*@
+            <tr>
+                <th>Unrestrained</th>
+                <th>DUI</th>
+                <th>Intersection Related</th>
+                <th>Wild Animal Related</th>
+                <th>Domestic Animal Related</th>
+                <th>Drowsy Driving</th>
+                <th>Roadway Departure</th>
+            </tr>
+
+            <tr>
+                <td>@Model.unrestrained</td>
+                <td>@Model.dui</td>
+                <td>@Model.intersection_related</td>
+                <td>@Model.wild_animal_related</td>
+                <td>@Model.domestic_animal_related</td>
+                <td>@Model.drowsy_driving</td>
+                <td>@Model.roadway_departure</td>
+            </tr>
+
+            <tr>
+                <td colspan="10"></td>
+            </tr>
+
+            @*ROW4*@
+            <tr>
+                <th>Overturn or Rollover</th>
+                <th>Commercial Motor Vehicle Involved</th>
+                <th>Teenage Driver Involved</th>
+                <th>Older Driver Involved</th>
+                <th>Night/Dark Condition</th>
+                <th>Single Vehicle</th>
+                <th>Distracted Driving</th>
+            </tr>
+
+            <tr>
+                <td>@Model.overturn_rollover</td>
+                <td>@Model.commercial_motor_veh_involved</td>
+                <td>@Model.teenage_driver_involved</td>
+                <td>@Model.older_driver_involved</td>
+                <td>@Model.night_dark_condition</td>
+                <td>@Model.single_vehicle</td>
+                <td>@Model.distracted_driving</td>
+
+            </tr>
+
         </table>
     </div>
 
 </row>
 
-    <div class="row">
-
-        <div class="col-6">
-            <p>Crash Datetime: @Model.crash_datetime</p>
-            <p>Route Name: @Model.route</p>
-            <p>Milepoint: @Model.milepoint</p>
-            <p>Latitude: @Model.lat_utm_y</p>
-            <p>Longitude: @Model.long_utm_x</p>
-            <p>Main Road Name: @Model.main_road_name</p>
-            <p>City: @Model.city</p>
-            <p>County Name: @Model.county_name</p>
-            <p>Crash Severity: @Model.crash_severity_id</p>
-            <p>Work Zone: @Model.work_zone_related</p>
-            <p>Pedestrian Involved: @Model.pedestrian_involved</p>
-            <p>Bicyclist Involved: @Model.bicyclist_involved</p>
-            <p>Motorcycle Involved: @Model.motorcycle_involved</p>
-            <p>Improper Restraint: @Model.improper_restraint</p>
-        </div>
-
-        <div class="col-6 float-end">
-            <h6>Unrestrained:</h6>
-            <p>@Model.unrestrained</p>
-            <p>DUI: @Model.dui</p>
-            <p>Intersection Related: @Model.intersection_related</p>
-            <p>Wild Animal Related: @Model.wild_animal_related</p>
-            <p>Domestic Animal Related: @Model.domestic_animal_related</p>
-            <p>Overturn or Rollover: @Model.overturn_rollover</p>
-            <p>Commercial Motor Vehicle Involved: @Model.commercial_motor_veh_involved</p>
-            <p>Teenage Driver Involved: @Model.teenage_driver_involved</p>
-            <p>Older Driver Involved: @Model.older_driver_involved</p>
-            <p>Night/Dark Condition: @Model.night_dark_condition</p>
-            <p>Single Vehicle: @Model.single_vehicle</p>
-            <p>Distracted Driving: @Model.distracted_driving</p>
-            <p>Drowsy Driving: @Model.drowsy_driving</p>
-            <p>Roadway Departure: @Model.roadway_departure</p>
-        </div>
-
-    </div>
-<a asp-controller="home" asp-action="Edit" asp-route-crashid="@Model.crash_id">Edit</a>
-<a asp-controller="home" asp-action="Delete" asp-route-crashid="@Model.crash_id">Delete</a>
+<row class="mx-4">
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Crashes">Back</a>
+    <a class="btn btn-outline-secondary" asp-controller="home" asp-action="Edit" asp-route-crashid="@Model.crash_id">Edit</a>
+    <a class="btn btn-outline-secondary" asp-controller="home" asp-action="Delete" asp-route-crashid="@Model.crash_id">Delete</a>
+</row>
