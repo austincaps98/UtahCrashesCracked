@@ -37,7 +37,7 @@ namespace UtahCrashesCracked.Controllers
             return View();
         }
 
-
+        [Authorize]
         [HttpGet]
         public IActionResult Crashes(string county, int pageNum = 1)
         {
